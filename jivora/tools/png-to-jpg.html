@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PNG to JPG Converter — Shrink PNGs into lightweight JPEGs | Jivora</title>
+  <meta name="description" content="Convert PNG images into compact JPG files with a quality slider and custom background for transparency. Side-by-side size comparison, nothing uploaded.">
+  <link rel="canonical" href="https://jivora.example/tools/png-to-jpg.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="PNG to JPG Converter — Shrink PNGs into lightweight JPEGs | Jivora">
+  <meta property="og:description" content="Convert PNG to JPG with a quality slider and transparency background colour — in your browser, with exact before/after sizes.">
+  <meta property="og:url" content="https://jivora.example/tools/png-to-jpg.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PNG to JPG Converter — Shrink PNGs into lightweight JPEGs | Jivora">
+  <meta name="twitter:description" content="Convert PNG to JPG with a quality slider and transparency background colour.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PNG to JPG",
+    "url": "https://jivora.example/tools/png-to-jpg.html",
+    "description": "Convert PNG images into compact JPG files with a quality slider and custom background for transparency.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I convert a PNG to JPG?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Drop a PNG into the box; the tool converts it instantly with the chosen quality and background colour, then offers a side-by-side size comparison and a download button." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to transparency?",
+        "acceptedAnswer": { "@type": "Answer", "text": "JPG has no transparency, so transparent areas are filled with the background colour you pick — white by default. Anything that must stay see-through should remain PNG." }
+      },
+      {
+        "@type": "Question",
+        "name": "What quality setting should I use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "85% suits most photos and screenshots. Lower (around 70%) shrinks the file further for the web; raise it toward 95% when fine text or detail matters. The exact byte counts update as you move the slider." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will the JPG be smaller than the PNG?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Almost always — PNG stores pixels losslessly while JPG compresses them, so screenshots and photos typically shrink dramatically. The comparison shows your real before and after numbers either way." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my image uploaded?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Conversion runs on a canvas inside this tab — the file never leaves your device and nothing is stored or logged." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://jivora.example/index.html#cat-image" },
+      { "@type": "ListItem", "position": 3, "name": "PNG to JPG", "item": "https://jivora.example/tools/png-to-jpg.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="png-to-jpg" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-image">Image Tools</a></li>
+          <li><span aria-current="page">PNG to JPG</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="image" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.3" r="1.7"/><path d="m4 18.5 5-5 4 4 3-3 4 4"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">PNG to JPG</h1>
+            <p class="tool-hero__lead">Shrink heavy PNGs into lightweight JPGs with a quality slider and a background colour for transparency — with the real before/after file sizes, right in your browser.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="PNG to JPG converter">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Convert PNG to JPG</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <label class="dropzone" id="p2j-dropzone" for="p2j-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 16V4M12 4 7.5 8.5M12 4l4.5 4.5"/>
+              <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
+            </svg>
+            <span class="dropzone__title">Drop a PNG here, or click to browse</span>
+            <span class="dropzone__hint">PNG only · up to 20 MB · converted locally</span>
+            <input type="file" id="p2j-file" accept="image/png">
+          </label>
+
+          <div class="field-grid" style="margin-top: 22px;">
+            <div class="field">
+              <label class="field-label" for="p2j-quality">Quality <span class="field-unit">lower = smaller</span></label>
+              <div class="range-row">
+                <input type="range" id="p2j-quality" min="50" max="95" step="1" value="85">
+                <span class="range-val" id="p2j-quality-val">85%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="p2j-bg">Background <span class="field-unit">for transparency · hex</span></label>
+              <input type="text" id="p2j-bg" value="#ffffff" spellcheck="false" autocomplete="off" maxlength="7">
+            </div>
+          </div>
+
+          <div class="error-box" id="p2j-error" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+            </svg>
+            <span></span>
+          </div>
+
+          <div class="result" id="p2j-result" role="status" aria-live="polite">
+            <p class="result__empty">Choose a PNG above — the original and converted JPG will appear here with their exact file sizes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this converter</h2>
+        <ol class="steps">
+          <li><strong>Drop a PNG</strong> onto the upload box. Conversion starts immediately at your current settings.</li>
+          <li><strong>Set the quality.</strong> The slider runs from 50% (smallest) to 95% (highest fidelity); 85% is the sweet spot. The file re-converts automatically as you move it.</li>
+          <li><strong>Handle transparency.</strong> If the PNG has transparent areas, they are filled with the background colour — white by default, or any hex colour you type.</li>
+          <li><strong>Compare and download.</strong> Both file sizes are shown side by side; press Download JPG to save, or adjust settings to re-convert the same image.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>PNG is the right format for screenshots, logos and graphics with sharp edges or transparency — and the wrong one when the file is a photo, because lossless storage makes those files enormous. Converting to JPG is usually the single biggest size win available for PNG photos.</p>
+
+          <h3>Choosing a quality</h3>
+          <p>85% is visually excellent for almost everything. Drop toward 70% for images that live on a web page or in an email, where every hundred kilobytes counts. Push to 95% only for images with fine text or intricate detail — the savings from going lower stop being worth the visible artifacts.</p>
+
+          <h3>Transparency, honestly</h3>
+          <p>JPG cannot store transparency — it's a hard format limitation, not a setting. Transparent pixels are composited onto the background colour you choose before encoding. If transparency matters, keep PNG (or convert to WebP with the <a href="image-compressor.html">Image Compressor</a>, which preserves it).</p>
+
+          <h3>JPG artifacts to expect</h3>
+          <p>At lower qualities you may notice halos around sharp edges and blockiness in flat areas. That's JPEG working as designed. Preview the result above at your chosen quality before downloading — what you see is what you get.</p>
+
+          <p><strong>Privacy:</strong> everything happens on your device using an off-screen canvas. No upload, no server, no storage.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>How do I convert a PNG to JPG?</summary>
+            <p class="faq__answer">Drop a PNG into the box; the tool converts it instantly with the chosen quality and background colour, then offers a side-by-side size comparison and a download button.</p>
+          </details>
+          <details>
+            <summary>What happens to transparency?</summary>
+            <p class="faq__answer">JPG has no transparency, so transparent areas are filled with the background colour you pick — white by default. Anything that must stay see-through should remain PNG.</p>
+          </details>
+          <details>
+            <summary>What quality setting should I use?</summary>
+            <p class="faq__answer">85% suits most photos and screenshots. Lower (around 70%) shrinks the file further for the web; raise it toward 95% when fine text or detail matters. The exact byte counts update as you move the slider.</p>
+          </details>
+          <details>
+            <summary>Will the JPG be smaller than the PNG?</summary>
+            <p class="faq__answer">Almost always — PNG stores pixels losslessly while JPG compresses them, so screenshots and photos typically shrink dramatically. The comparison shows your real before and after numbers either way.</p>
+          </details>
+          <details>
+            <summary>Is my image uploaded?</summary>
+            <p class="faq__answer">No. Conversion runs on a canvas inside this tab — the file never leaves your device and nothing is stored or logged.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="jpg-to-png.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.3" r="1.7"/><path d="m4 18.5 5-5 4 4 3-3 4 4"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">JPG to PNG</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="image-compressor.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/><rect x="9" y="9" width="6" height="6" rx="1.2"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Image Compressor</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="image-resizer.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.3" r="1.7"/><path d="m4 18.5 5-5 4 4 3-3 4 4"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Image Resizer</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/png-to-jpg.js"></script>
+</body>
+</html>

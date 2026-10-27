@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Random Number Generator — Secure numbers in any range | Jivora</title>
+  <meta name="description" content="Generate secure random numbers in any range — integers or decimals, single picks or 100 at once, with a unique option. Free, instant and private.">
+  <link rel="canonical" href="https://jivora.example/tools/random-number-generator.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Random Number Generator — Secure numbers in any range | Jivora">
+  <meta property="og:description" content="Secure random numbers in any range: integers or decimals, unique option, up to 100 at a time — generated in your browser.">
+  <meta property="og:url" content="https://jivora.example/tools/random-number-generator.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Number Generator — Secure numbers in any range | Jivora">
+  <meta name="twitter:description" content="Secure random numbers in any range: integers or decimals, unique option, up to 100 at a time.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Random Number Generator",
+    "url": "https://jivora.example/tools/random-number-generator.html",
+    "description": "Generate secure random numbers in any range — integers or decimals, single picks or 100 at once, with a unique option.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the randomness truly random?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — numbers come from your browser's cryptographically secure random generator, the same source used for passwords and security tokens, not from a predictable pattern. They are well suited to draws, games and sampling." }
+      },
+      {
+        "@type": "Question",
+        "name": "What ranges and counts are supported?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Any integer range with the minimum less than or equal to the maximum (negative numbers fine), or any decimal range with up to two decimal places. You can request between 1 and 100 numbers per draw." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get unique, non-repeating numbers?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — turn on unique for integer draws and every number is different. The tool checks that your range is large enough for the count you asked for and tells you if it isn't. Uniqueness is an integer-only option; decimal mode disables the checkbox." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use it for dice rolls and games?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely: set 1 to 6 for a standard die, 1 to 100 for percentages, 1 to 10 for a ten-sided pick. Each press of Generate draws a fresh set — nothing is cached or reused between clicks." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my numbers stored anywhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Generation happens entirely in this tab — the results are never sent to a server, saved or logged by Jivora." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Everyday Tools", "item": "https://jivora.example/index.html#cat-everyday" },
+      { "@type": "ListItem", "position": 3, "name": "Random Number Generator", "item": "https://jivora.example/tools/random-number-generator.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="random-number-generator" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-everyday">Everyday Tools</a></li>
+          <li><span aria-current="page">Random Number Generator</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="everyday" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2.5 4.8 13.4h6.1L10.4 21.5l8.3-11.2h-6.1L13 2.5Z"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">Random Number Generator</h1>
+            <p class="tool-hero__lead">Secure random numbers in any range — integers or decimals, one pick or a hundred, with a unique mode that never repeats. Powered by your browser's crypto RNG.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Random number generator">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Generate random numbers</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="rn-form" novalidate>
+            <div class="seg" role="group" aria-label="Number type">
+              <button type="button" class="seg__btn is-on" data-mode="int" aria-pressed="true">Whole numbers</button>
+              <button type="button" class="seg__btn" data-mode="dec" aria-pressed="false">Decimals</button>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="rn-min">Minimum <span class="field-unit">lowest value</span></label>
+                <input type="number" id="rn-min" value="1" step="1" inputmode="decimal">
+              </div>
+              <div class="field">
+                <label class="field-label" for="rn-max">Maximum <span class="field-unit">highest value</span></label>
+                <input type="number" id="rn-max" value="100" step="1" inputmode="decimal">
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="rn-count">How many <span class="field-unit">1–100</span></label>
+                <input type="number" id="rn-count" min="1" max="100" step="1" value="1" inputmode="numeric">
+              </div>
+              <div class="field">
+                <label class="field-label">Options</label>
+                <div class="check-grid">
+                  <label class="check"><input type="checkbox" id="rn-unique"> Unique — no repeats</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="error-box" id="rn-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit" id="rn-go">Generate numbers</button>
+              <button class="btn btn--ghost" type="button" id="rn-copy">Copy result</button>
+            </div>
+          </form>
+
+          <div class="result" id="rn-result" role="status" aria-live="polite">
+            <p class="result__label">Your numbers</p>
+            <p class="result__primary grad-text" id="rn-primary">42</p>
+            <div class="pw-out" id="rn-outwrap" hidden style="margin-top: 4px;">
+              <div class="pw-out__text" id="rn-out"></div>
+            </div>
+            <div class="result__rows">
+              <div class="result-row"><span class="result-row__k">Range</span><span class="result-row__v" id="rn-range">1 – 100</span></div>
+              <div class="result-row"><span class="result-row__k">Drawn</span><span class="result-row__v" id="rn-drawn">1</span></div>
+            </div>
+            <div class="editor-status" id="rn-status">Fresh random numbers, generated on your device.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this generator</h2>
+        <ol class="steps">
+          <li><strong>Set your range.</strong> Enter a minimum and maximum — whole numbers for dice and picks, decimals for sampling and simulations.</li>
+          <li><strong>Choose how many.</strong> One number for a single pick, or up to 100 for a list. Turn on <strong>Unique</strong> to guarantee no repeats within a draw.</li>
+          <li><strong>Press Generate.</strong> A fresh set appears instantly, with the range and count summarised underneath.</li>
+          <li><strong>Copy and reuse.</strong> Copy puts the whole set on your clipboard, and every press of Generate draws again from scratch.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>Not all random numbers are equal. Picking from <code>Math.random()</code> is fine for shuffling a playlist, but anything with stakes — prize draws, test data, security-adjacent sampling — deserves better entropy. This tool uses the browser's cryptographic random source and an unbiased mapping onto your range.</p>
+
+          <h3>Why unbiased matters</h3>
+          <p>The naïve way to get a number in a range is “take the raw random value and divide”. When the range doesn't divide evenly into the random source's size, some outcomes become slightly more likely than others. This generator rejects the uneven tail, so every value in your range is exactly as likely as every other — no matter how odd the range is.</p>
+
+          <h3>Integers vs decimals</h3>
+          <p><strong>Whole numbers</strong> cover classic uses: raffles (1–100), dice (1–6), seating picks, lottery-style draws. <strong>Decimals</strong> produce values anywhere between your bounds with two decimal places — useful for jitter, random prices, coordinates and simulation inputs. Unique mode is an integer concept, so it switches off in decimal mode.</p>
+
+          <h3>Unique draws, honestly checked</h3>
+          <p>With Unique on, each number is drawn without replacement — try to ask for 50 numbers from a range of 30 and the tool refuses with a clear message instead of quietly repeating values behind your back.</p>
+
+          <p><strong>Privacy:</strong> everything is generated locally. The numbers never leave your tab — refresh and the results are gone.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Is the randomness truly random?</summary>
+            <p class="faq__answer">Yes — numbers come from your browser's cryptographically secure random generator, the same source used for passwords and security tokens, not from a predictable pattern. They are well suited to draws, games and sampling.</p>
+          </details>
+          <details>
+            <summary>What ranges and counts are supported?</summary>
+            <p class="faq__answer">Any integer range with the minimum less than or equal to the maximum (negative numbers fine), or any decimal range with up to two decimal places. You can request between 1 and 100 numbers per draw.</p>
+          </details>
+          <details>
+            <summary>Can I get unique, non-repeating numbers?</summary>
+            <p class="faq__answer">Yes — turn on unique for integer draws and every number is different. The tool checks that your range is large enough for the count you asked for and tells you if it isn't. Uniqueness is an integer-only option; decimal mode disables the checkbox.</p>
+          </details>
+          <details>
+            <summary>Can I use it for dice rolls and games?</summary>
+            <p class="faq__answer">Absolutely: set 1 to 6 for a standard die, 1 to 100 for percentages, 1 to 10 for a ten-sided pick. Each press of Generate draws a fresh set — nothing is cached or reused between clicks.</p>
+          </details>
+          <details>
+            <summary>Are my numbers stored anywhere?</summary>
+            <p class="faq__answer">No. Generation happens entirely in this tab — the results are never sent to a server, saved or logged by Jivora.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="random-name-picker.html" data-cat="everyday">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Random Name Picker</span>
+              <span class="rel-card__cat">Everyday Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="password-generator.html" data-cat="everyday">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4.5" y="10" width="15" height="10.5" rx="3"/><path d="M8 10V7.2a4 4 0 0 1 8 0V10"/><circle cx="12" cy="15.2" r="1.4"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Password Generator</span>
+              <span class="rel-card__cat">Everyday Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="uuid-generator.html" data-cat="developer">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.6 5l-3.2 14"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">UUID Generator</span>
+              <span class="rel-card__cat">Developer Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/random-number-generator.js"></script>
+</body>
+</html>

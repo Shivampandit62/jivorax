@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMI Calculator — Monthly EMI, Interest &amp; Total Payment | Jivora</title>
+  <meta name="description" content="Calculate monthly EMI, total interest and total payment for any loan — home, car, personal or education — with a clear principal vs interest breakdown. Free and private.">
+  <link rel="canonical" href="https://jivora.example/tools/emi-calculator.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="EMI Calculator — Monthly EMI, Interest &amp; Total Payment | Jivora">
+  <meta property="og:description" content="Monthly EMI, total interest and total payment for any loan, with a visual breakdown — instantly in your browser.">
+  <meta property="og:url" content="https://jivora.example/tools/emi-calculator.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EMI Calculator — Monthly EMI, Interest &amp; Total Payment | Jivora">
+  <meta name="twitter:description" content="Monthly EMI, total interest and total payment for any loan, with a visual breakdown.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "EMI Calculator",
+    "url": "https://jivora.example/tools/emi-calculator.html",
+    "description": "Calculate monthly EMI, total interest and total payment for any loan with a visual breakdown.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is EMI calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "EMI uses the formula P × r × (1 + r)^n ÷ ((1 + r)^n − 1), where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100) and n is the number of monthly instalments." }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if the interest rate is 0%?",
+        "acceptedAnswer": { "@type": "Answer", "text": "With a 0% rate the EMI is simply the loan amount divided by the number of instalments — you pay back exactly what you borrowed with no interest." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a longer tenure reduce my EMI?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — spreading payments over more months lowers the monthly EMI, but you pay more interest in total. The breakdown bar shows how much of your repayment is interest." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this EMI figure exactly what my bank will charge?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It is an estimate. Banks may add processing fees, insurance or rate changes (for floating-rate loans), so treat this as a planning figure rather than an official schedule." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my loan data stored by Jivora?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The calculation runs in your browser — the loan amount, rate and tenure are never sent anywhere or saved." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Finance Tools", "item": "https://jivora.example/index.html#cat-finance" },
+      { "@type": "ListItem", "position": 3, "name": "EMI Calculator", "item": "https://jivora.example/tools/emi-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="emi-calculator" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          <li><span aria-current="page">EMI Calculator</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="finance" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 10 12 4l9 6"/><path d="M5.5 10.5V18M9.8 10.5V18M14.2 10.5V18M18.5 10.5V18"/><path d="M3 21h18"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">EMI Calculator</h1>
+            <p class="tool-hero__lead">Plan any loan in seconds: monthly EMI, total interest and total payment — plus a simple visual split of principal versus interest.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="EMI calculator">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Try it</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="emi-form" novalidate>
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="emi-amount">Loan amount <span class="field-unit">₹</span></label>
+                <input type="number" id="emi-amount" min="1" step="any" inputmode="decimal" placeholder="e.g. 500000" autocomplete="off">
+                <span class="field-note">The amount you borrow.</span>
+              </div>
+              <div class="field">
+                <label class="field-label" for="emi-rate">Interest rate <span class="field-unit">% per year</span></label>
+                <input type="number" id="emi-rate" min="0" max="100" step="any" inputmode="decimal" placeholder="e.g. 8.5" autocomplete="off">
+                <span class="field-note">Use 0 for an interest-free loan.</span>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="emi-tenure">Loan duration</label>
+                <input type="number" id="emi-tenure" min="1" step="1" inputmode="numeric" placeholder="e.g. 20" autocomplete="off">
+                <span class="field-note">Up to 50 years (600 months).</span>
+              </div>
+              <div class="field">
+                <label class="field-label" for="emi-unit">Duration in</label>
+                <select id="emi-unit">
+                  <option value="years" selected>Years</option>
+                  <option value="months">Months</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="error-box" id="emi-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit">Calculate</button>
+              <button class="btn btn--ghost" type="reset">Reset</button>
+              <button class="btn btn--soft" type="button" id="emi-copy">Copy Result</button>
+            </div>
+          </form>
+
+          <div class="result" id="emi-result" role="status" aria-live="polite">
+            <p class="result__empty">Enter the loan amount, rate and duration, then press Calculate — your EMI appears here.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this calculator</h2>
+        <ol class="steps">
+          <li><strong>Enter the loan amount</strong> you plan to borrow — a home loan, car loan, personal loan or anything else.</li>
+          <li><strong>Add the annual interest rate</strong> your lender quotes. Enter 0 if the loan is interest-free.</li>
+          <li><strong>Set the duration</strong> in years or months using the dropdown.</li>
+          <li><strong>Press Calculate</strong> to see your monthly EMI, total interest, total payment and the principal-versus-interest split. Use <strong>Copy Result</strong> to save the numbers.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>EMI stands for Equated Monthly Instalment — the fixed amount you pay each month until the loan is cleared. Every payment covers part of the borrowed amount (principal) and part of the interest charged by the lender.</p>
+
+          <h3>The formula behind your EMI</h3>
+          <p><strong>EMI = P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1)</strong>, where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100) and n is the number of monthly instalments. If the rate is 0%, the EMI is simply P ÷ n.</p>
+
+          <h3>Why total interest surprises people</h3>
+          <p>Longer tenures lower the monthly payment but increase the total interest — sometimes dramatically. Comparing the bar above for a 5-year and a 15-year term on the same loan makes the trade-off obvious in one glance.</p>
+
+          <h3>Getting a more accurate picture</h3>
+          <p>Bank schedules can include processing fees, insurance or rate changes on floating-rate loans. Add those on top of these figures, and if your rate is floating, recalculate whenever the rate changes.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>How is EMI calculated?</summary>
+            <p class="faq__answer">EMI uses the formula P × r × (1 + r)ⁿ ÷ ((1 + r)ⁿ − 1), where P is the loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100) and n is the number of monthly instalments.</p>
+          </details>
+          <details>
+            <summary>What happens if the interest rate is 0%?</summary>
+            <p class="faq__answer">With a 0% rate the EMI is simply the loan amount divided by the number of instalments — you pay back exactly what you borrowed with no interest.</p>
+          </details>
+          <details>
+            <summary>Does a longer tenure reduce my EMI?</summary>
+            <p class="faq__answer">Yes — spreading payments over more months lowers the monthly EMI, but you pay more interest in total. The breakdown bar shows how much of your repayment is interest.</p>
+          </details>
+          <details>
+            <summary>Is this EMI figure exactly what my bank will charge?</summary>
+            <p class="faq__answer">It is an estimate. Banks may add processing fees, insurance or rate changes (for floating-rate loans), so treat this as a planning figure rather than an official schedule.</p>
+          </details>
+          <details>
+            <summary>Is my loan data stored by Jivora?</summary>
+            <p class="faq__answer">No. The calculation runs in your browser — the loan amount, rate and tenure are never sent anywhere or saved.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="gst-calculator.html" data-cat="finance">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9.5 8.5h5M9.5 12.5h5"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">GST Calculator</span>
+              <span class="rel-card__cat">Finance Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="percentage-calculator.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/><path d="M19 5 5 19"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Percentage Calculator</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="cgpa-calculator.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 8.5 12 4l10 4.5-10 4.5L2 8.5Z"/><path d="M6 10.8V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-5.2"/><path d="M21.5 9v5"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">CGPA Calculator</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/emi-calculator.js"></script>
+</body>
+</html>

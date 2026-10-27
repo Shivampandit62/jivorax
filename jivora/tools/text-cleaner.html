@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text Cleaner — Remove extra spaces, smart quotes &amp; messy formatting | Jivora</title>
+  <meta name="description" content="Clean messy text in one box: collapse extra spaces, trim lines, remove blank-line runs and straighten smart quotes. Free, instant and private — nothing is uploaded.">
+  <link rel="canonical" href="https://jivora.example/tools/text-cleaner.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Text Cleaner — Remove extra spaces, smart quotes &amp; messy formatting | Jivora">
+  <meta property="og:description" content="Collapse extra spaces, trim lines, remove blank-line runs and straighten smart quotes — live as you type, entirely in your browser.">
+  <meta property="og:url" content="https://jivora.example/tools/text-cleaner.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Text Cleaner — Remove extra spaces, smart quotes &amp; messy formatting | Jivora">
+  <meta name="twitter:description" content="Collapse extra spaces, trim lines, remove blank-line runs and straighten smart quotes.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Text Cleaner",
+    "url": "https://jivora.example/tools/text-cleaner.html",
+    "description": "Clean messy text in one box: collapse extra spaces, trim lines, remove blank-line runs and straighten smart quotes.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does this tool clean up?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Double spaces, tabs between words, leading and trailing whitespace on every line, runs of blank lines, and smart (curly) quotes and ellipses that cause problems in code and forms. Each fix is a separate toggle, so you only apply the ones you want." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it change my wording or line breaks?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The cleaner never adds, removes or reorders words, and single line breaks stay exactly where they are — only whitespace and punctuation characters are normalised." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do smart quotes cause problems?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Curly quotes (“ ” ‘ ’) are multi-byte characters that many forms, spreadsheets and code files don't expect. If a pasted value refuses to match or compile, straightening the punctuation is often the fix." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it remove duplicate lines too?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No — that is a separate job. Use the Duplicate Line Remover when you also need repeated lines removed; this tool only fixes spacing and punctuation." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my text stored anywhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Cleaning runs entirely in your browser as you type — your text is never sent to a server or saved by Jivora." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://jivora.example/index.html#cat-text" },
+      { "@type": "ListItem", "position": 3, "name": "Text Cleaner", "item": "https://jivora.example/tools/text-cleaner.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="text-cleaner" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-text">Text Tools</a></li>
+          <li><span aria-current="page">Text Cleaner</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="text" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">Text Cleaner</h1>
+            <p class="tool-hero__lead">Paste messy text and watch it tidy itself: extra spaces, stray tabs, ragged edges, blank-line runs and smart quotes — cleaned live as you type.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Text cleaner">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Clean your text</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="tc-form" novalidate>
+            <div class="field">
+              <label class="field-label" for="tc-text">Messy text <span class="field-unit">cleans live</span></label>
+              <textarea class="input" id="tc-text" rows="7" placeholder="Paste text with   extra spaces, stray tabs, curly quotes… and watch it clean up."></textarea>
+            </div>
+
+            <div class="field">
+              <label class="field-label">Fixes to apply</label>
+              <div class="check-grid">
+                <label class="check"><input type="checkbox" id="tc-spaces" checked> Collapse extra spaces</label>
+                <label class="check"><input type="checkbox" id="tc-trim" checked> Trim every line</label>
+                <label class="check"><input type="checkbox" id="tc-blanks" checked> Remove blank-line runs</label>
+                <label class="check"><input type="checkbox" id="tc-quotes" checked> Straighten smart punctuation</label>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="button" id="tc-copy">Copy clean text</button>
+              <button class="btn btn--ghost" type="reset">Clear</button>
+            </div>
+          </form>
+
+          <div class="result" id="tc-result" role="status" aria-live="polite">
+            <p class="result__label">Clean output</p>
+            <div class="pw-out" style="margin-top: 4px;">
+              <div class="pw-out__text" id="tc-out">Your cleaned text appears here.</div>
+            </div>
+            <div class="editor-status" id="tc-status">Paste some text to get started.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this text cleaner</h2>
+        <ol class="steps">
+          <li><strong>Paste your text</strong> into the box — copied from emails, PDFs, websites or chat, however messy it is.</li>
+          <li><strong>Pick the fixes</strong> you want. All four are on by default; switch any of them off if you need that formatting kept.</li>
+          <li><strong>Check the output</strong> on the right — it updates with every keystroke, and the status line shows whether anything changed.</li>
+          <li><strong>Copy the result</strong> with one button, or press Clear to start over with a fresh paste.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>Pasted text is rarely clean. Word processors and websites hide characters you can't see — double spaces after sentences, tabs, non-breaking spaces, curly quotes — and those invisible extras break code, forms and spreadsheets later.</p>
+
+          <h3>What each fix does</h3>
+          <p><strong>Collapse extra spaces</strong> turns runs of spaces and tabs between words into a single space. <strong>Trim every line</strong> removes leading and trailing whitespace, including the trailing spaces that sneak in at line ends. <strong>Remove blank-line runs</strong> keeps paragraph breaks but collapses three or more blank lines down to one. <strong>Straighten smart punctuation</strong> converts curly quotes and ellipses (…) into plain ASCII equivalents.</p>
+
+          <h3>What it deliberately doesn't do</h3>
+          <p>No words are rewritten, no lines are joined or split, and single line breaks are preserved exactly. This is whitespace and punctuation hygiene — not a rewriter. If you also need repeated lines removed, that's the dedicated <a href="duplicate-line-remover.html">Duplicate Line Remover</a>.</p>
+
+          <h3>Cleaning before you paste</h3>
+          <p>Run text through this tool before pasting into a code editor, CSV, form field or database import. It is the fastest way to kill the "works in the preview but fails on submit" class of bugs caused by invisible characters.</p>
+
+          <p><strong>Privacy:</strong> cleaning happens entirely in this tab. Your text is never transmitted, stored or logged.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>What does this tool clean up?</summary>
+            <p class="faq__answer">Double spaces, tabs between words, leading and trailing whitespace on every line, runs of blank lines, and smart (curly) quotes and ellipses that cause problems in code and forms. Each fix is a separate toggle, so you only apply the ones you want.</p>
+          </details>
+          <details>
+            <summary>Will it change my wording or line breaks?</summary>
+            <p class="faq__answer">No. The cleaner never adds, removes or reorders words, and single line breaks stay exactly where they are — only whitespace and punctuation characters are normalised.</p>
+          </details>
+          <details>
+            <summary>Why do smart quotes cause problems?</summary>
+            <p class="faq__answer">Curly quotes (“ ” ‘ ’) are multi-byte characters that many forms, spreadsheets and code files don't expect. If a pasted value refuses to match or compile, straightening the punctuation is often the fix.</p>
+          </details>
+          <details>
+            <summary>Does it remove duplicate lines too?</summary>
+            <p class="faq__answer">No — that is a separate job. Use the Duplicate Line Remover when you also need repeated lines removed; this tool only fixes spacing and punctuation.</p>
+          </details>
+          <details>
+            <summary>Is my text stored anywhere?</summary>
+            <p class="faq__answer">No. Cleaning runs entirely in your browser as you type — your text is never sent to a server or saved by Jivora.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="duplicate-line-remover.html" data-cat="text">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Duplicate Line Remover</span>
+              <span class="rel-card__cat">Text Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="case-converter.html" data-cat="text">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Case Converter</span>
+              <span class="rel-card__cat">Text Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="character-counter.html" data-cat="text">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Character Counter</span>
+              <span class="rel-card__cat">Text Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/text-cleaner.js"></script>
+</body>
+</html>

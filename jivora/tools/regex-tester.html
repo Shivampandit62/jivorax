@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regex Tester — Test Regular Expressions Live | Jivora</title>
+  <meta name="description" content="Test JavaScript regular expressions against sample text with live match lists, capture groups, flags and replace preview. Free and private.">
+  <link rel="canonical" href="https://jivora.example/tools/regex-tester.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Regex Tester — Test Regular Expressions Live | Jivora">
+  <meta property="og:description" content="Live regex matching with capture groups, flags and a replace preview — all in your browser.">
+  <meta property="og:url" content="https://jivora.example/tools/regex-tester.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Regex Tester — Test Regular Expressions Live | Jivora">
+  <meta name="twitter:description" content="Live regex matching with capture groups, flags and a replace preview.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Regex Tester",
+    "url": "https://jivora.example/tools/regex-tester.html",
+    "description": "Test JavaScript regular expressions against sample text with live match lists, capture groups, flags and replace preview.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which regex syntax does this tester support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "JavaScript regular expressions (ECMAScript) — the exact same engine your browser runs. Classes, quantifiers, groups, named groups (?<name>…), lookarounds and Unicode property escapes all work." }
+      },
+      {
+        "@type": "Question",
+        "name": "What do the flags mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "g finds every match instead of the first, i ignores case, m makes ^ and $ match line starts and ends, s lets the dot match newlines, and u enables full Unicode mode." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why doesn't my pattern match across lines?",
+        "acceptedAnswer": { "@type": "Answer", "text": "By default the dot doesn't match newline characters. Add the s flag to let it, use m for line-anchored matching, or match explicitly with [\\s\\S] or (?s) patterns." }
+      },
+      {
+        "@type": "Question",
+        "name": "How many matches are shown?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Up to 200 matches are collected so a greedy pattern can't hang the tab, with the first 30 displayed in detail plus capture groups for each." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my text stored anywhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Matching runs entirely in your browser — patterns and test text are never sent to a server or saved by Jivora." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Developer Tools", "item": "https://jivora.example/index.html#cat-developer" },
+      { "@type": "ListItem", "position": 3, "name": "Regex Tester", "item": "https://jivora.example/tools/regex-tester.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="regex-tester" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+          <li><span aria-current="page">Regex Tester</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="developer" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.6 5l-3.2 14"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">Regex Tester</h1>
+            <p class="tool-hero__lead">Write a pattern, paste some text, see every match and capture group instantly — plus a replace preview, using the exact regex engine your browser runs.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Regex tester">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Test a pattern</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="rx-form" novalidate>
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="rx-pattern">Pattern <span class="field-unit">without slashes</span></label>
+                <input type="text" id="rx-pattern" class="mono" placeholder="e.g. \b\w+@\w+\.\w+\b" spellcheck="false" autocomplete="off" style="font-family: var(--mono);">
+              </div>
+              <div class="field">
+                <label class="field-label" for="rx-flags">Flags <span class="field-unit">g i m s u</span></label>
+                <input type="text" id="rx-flags" value="g" maxlength="6" spellcheck="false" autocomplete="off" style="font-family: var(--mono);">
+              </div>
+            </div>
+
+            <div class="field" style="margin-top: 18px;">
+              <label class="field-label" for="rx-text">Test text</label>
+              <textarea class="input" id="rx-text" rows="7" placeholder="Paste the text you want to match against…"></textarea>
+            </div>
+
+            <div class="field" style="margin-top: 18px;">
+              <label class="field-label" for="rx-replace">Replace with <span class="field-unit">optional — $1 for groups</span></label>
+              <input type="text" id="rx-replace" placeholder="e.g. [redacted]" autocomplete="off" spellcheck="false">
+            </div>
+
+            <div class="error-box" id="rx-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit">Test</button>
+              <button class="btn btn--soft" type="button" id="rx-copy">Copy matches</button>
+              <button class="btn btn--ghost" type="reset">Clear</button>
+            </div>
+          </form>
+
+          <div class="result" id="rx-result" role="status" aria-live="polite">
+            <p class="result__empty">Enter a pattern and some test text — matches and capture groups appear here live.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this regex tester</h2>
+        <ol class="steps">
+          <li><strong>Write your pattern</strong> without the surrounding slashes — just the inside part.</li>
+          <li><strong>Set the flags:</strong> <code>g</code> for every match, <code>i</code> for case-insensitive, <code>m</code> for multiline anchors, <code>s</code> so dots match newlines.</li>
+          <li><strong>Paste your test text.</strong> Results update as you type: match count, positions, matched text and each capture group.</li>
+          <li><strong>Try replacements</strong> by filling “Replace with” — the preview shows the transformed text, with <code>$1</code>, <code>$2</code> referencing groups.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>Regular expressions are a compact language for describing patterns in text. This tester runs the ECMAScript engine — the same one behind <code>String.match()</code>, <code>replace()</code> and <code>search()</code> in your browser — so results transfer directly to your code.</p>
+
+          <h3>Reading the results</h3>
+          <p>Each row shows where the match started and what it captured. Group 1 comes from the first <code>(…)</code> in your pattern, group 2 from the second, and named groups appear with their names. A match list is often the fastest way to see why a pattern isn't behaving.</p>
+
+          <h3>Common gotchas</h3>
+          <p>The dot never matches newlines (use the <code>s</code> flag). <code>^</code> and <code>$</code> anchor to the whole string unless you add <code>m</code>. Quantifiers are greedy by default — append <code>?</code> (as in <code>.*?</code>) to make them lazy. And a pattern that can match an empty string will step one character at a time, which is why matches here are capped at 200.</p>
+
+          <h3>Escaping in real code</h3>
+          <p>What you type here is the raw pattern. In a JavaScript string literal you'd double the backslashes (<code>"\\b\\w+"</code>), while in a regex literal you'd write <code>/\b\w+/</code>. Everything between the slashes is exactly what belongs in the pattern box.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Which regex syntax does this tester support?</summary>
+            <p class="faq__answer">JavaScript regular expressions (ECMAScript) — the exact same engine your browser runs. Classes, quantifiers, groups, named groups (?&lt;name&gt;…), lookarounds and Unicode property escapes all work.</p>
+          </details>
+          <details>
+            <summary>What do the flags mean?</summary>
+            <p class="faq__answer">g finds every match instead of the first, i ignores case, m makes ^ and $ match line starts and ends, s lets the dot match newlines, and u enables full Unicode mode.</p>
+          </details>
+          <details>
+            <summary>Why doesn't my pattern match across lines?</summary>
+            <p class="faq__answer">By default the dot doesn't match newline characters. Add the s flag to let it, use m for line-anchored matching, or match explicitly with [\s\S] patterns.</p>
+          </details>
+          <details>
+            <summary>How many matches are shown?</summary>
+            <p class="faq__answer">Up to 200 matches are collected so a greedy pattern can't hang the tab, with the first 30 displayed in detail plus capture groups for each.</p>
+          </details>
+          <details>
+            <summary>Is my text stored anywhere?</summary>
+            <p class="faq__answer">No. Matching runs entirely in your browser — patterns and test text are never sent to a server or saved by Jivora.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="json-validator.html" data-cat="developer">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.5 4c-2 0-3 1.1-3 3v1.8c0 1.4-1 2.4-2.5 3.2 1.5.8 2.5 1.8 2.5 3.2V17c0 1.9 1 3 3 3"/>
+                <path d="M14.5 4c2 0 3 1.1 3 3v1.8c0 1.4 1 2.4 2.5 3.2-1.5.8-2.5 1.8-2.5 3.2V17c0 1.9-1 3-3 3"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">JSON Validator</span>
+              <span class="rel-card__cat">Developer Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="html-formatter.html" data-cat="developer">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.6 5l-3.2 14"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">HTML Formatter</span>
+              <span class="rel-card__cat">Developer Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="text-cleaner.html" data-cat="text">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Text Cleaner</span>
+              <span class="rel-card__cat">Text Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/regex-tester.js"></script>
+</body>
+</html>

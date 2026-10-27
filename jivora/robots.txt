@@ -1,0 +1,10 @@
+# Jivora — https://jivora.example
+# Replace the domain below with your real one after launch.
+
+User-agent: *
+Allow: /
+
+# 404.html is served for missing pages; it is already noindex.
+Disallow: /404.html
+
+Sitemap: https://jivora.example/sitemap.xml

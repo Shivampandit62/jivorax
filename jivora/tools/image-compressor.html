@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Compressor — Shrink JPG, PNG &amp; WebP | Jivora</title>
+  <meta name="description" content="Compress JPG, PNG and WebP images in your browser with a quality slider — nothing is ever uploaded. Free, instant and private — no signup required.">
+  <link rel="canonical" href="https://jivora.example/tools/image-compressor.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Image Compressor — Shrink JPG, PNG &amp; WebP | Jivora">
+  <meta property="og:description" content="Shrink JPG, PNG and WebP images right in your browser with a quality slider and side-by-side size comparison. Nothing is uploaded.">
+  <meta property="og:url" content="https://jivora.example/tools/image-compressor.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Compressor — Shrink JPG, PNG &amp; WebP | Jivora">
+  <meta name="twitter:description" content="Shrink JPG, PNG and WebP images right in your browser with a quality slider. Nothing is uploaded.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Compressor",
+    "url": "https://jivora.example/tools/image-compressor.html",
+    "description": "Compress JPG, PNG and WebP images in your browser with a quality slider — nothing is ever uploaded.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are my images uploaded to a server?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The image is read and re-encoded directly in your browser using a canvas. The file never leaves your device — you can disconnect from the internet and it still works." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which image formats are supported?",
+        "acceptedAnswer": { "@type": "Answer", "text": "JPG, PNG and WebP. GIF and SVG files are rejected because re-encoding them would lose animation or vector quality." }
+      },
+      {
+        "@type": "Question",
+        "name": "What quality setting should I use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Around 80% is the sweet spot for photos — visually near-identical at a fraction of the size. Use 60–70% for smaller files and 90%+ when fine detail matters." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did a PNG get bigger?",
+        "acceptedAnswer": { "@type": "Answer", "text": "PNG is lossless, so re-encoding it as PNG rarely shrinks it — unless the image has large flat areas. For photos saved as PNG, converting to JPG or WebP gives much better savings, and the tool automatically picks the smaller result for you." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my photo stored anywhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Everything happens in the browser tab; the compressed copy is created in memory and downloaded straight to your device. Nothing is saved or logged by Jivora." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://jivora.example/index.html#cat-image" },
+      { "@type": "ListItem", "position": 3, "name": "Image Compressor", "item": "https://jivora.example/tools/image-compressor.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="image-compressor" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-image">Image Tools</a></li>
+          <li><span aria-current="page">Image Compressor</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="image" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/><rect x="9" y="9" width="6" height="6" rx="1.2"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">Image Compressor</h1>
+            <p class="tool-hero__lead">Shrink JPG, PNG and WebP photos with a quality slider and see the before/after sizes side by side — all inside your browser, with no upload and no watermark.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Image compressor">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Compress an image</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <label class="dropzone" id="img-dropzone" for="img-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 16V4M12 4 7.5 8.5M12 4l4.5 4.5"/>
+              <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
+            </svg>
+            <span class="dropzone__title">Drop an image here, or click to browse</span>
+            <span class="dropzone__hint">JPG · PNG · WebP · up to 20 MB · processed locally</span>
+            <input type="file" id="img-file" accept="image/jpeg,image/png,image/webp">
+          </label>
+
+          <div class="field-grid" style="margin-top: 22px;">
+            <div class="field">
+              <label class="field-label" for="img-quality">Quality <span class="field-unit">lower = smaller</span></label>
+              <div class="range-row">
+                <input type="range" id="img-quality" min="30" max="95" step="1" value="80">
+                <span class="range-val" id="img-quality-val">80%</span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="img-maxw">Resize <span class="field-unit">optional</span></label>
+              <select id="img-maxw">
+                <option value="0">Keep original width</option>
+                <option value="2048">Max width 2048 px</option>
+                <option value="1600">Max width 1600 px</option>
+                <option value="1280">Max width 1280 px</option>
+                <option value="800">Max width 800 px</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="error-box" id="img-error" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+            </svg>
+            <span></span>
+          </div>
+
+          <div class="result" id="img-result" role="status" aria-live="polite">
+            <p class="result__empty">Choose an image above — the original and compressed sizes will appear here, ready to download.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this image compressor</h2>
+        <ol class="steps">
+          <li><strong>Pick an image.</strong> Drag a JPG, PNG or WebP file onto the dropzone, or click it and choose a file from your device.</li>
+          <li><strong>Adjust quality.</strong> The slider runs from 30% (smallest) to 95% (highest fidelity). 80% is the sweet spot for photos. You can also cap the width for extra savings.</li>
+          <li><strong>Compare the result.</strong> The tool shows both images side by side with their file sizes and the percentage saved. If compressing would make the file larger, it tells you instead of hiding it.</li>
+          <li><strong>Download.</strong> Press <strong>Download</strong> to save the smaller file, or change the settings to re-compress the same image automatically.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>Image compression removes data you are unlikely to notice — subtle colour variations and fine detail your eyes skip — so the file gets dramatically smaller. It is the fastest way to fix slow pages, full storage and upload limits.</p>
+
+          <h3>Lossy vs lossless</h3>
+          <p>JPG and WebP use <strong>lossy</strong> compression: quality below 100% discards some detail permanently, in exchange for size. PNG is <strong>lossless</strong>: every pixel survives, so PNG files rarely shrink when re-encoded — which is why this tool also tries WebP for PNG uploads and keeps whichever result is smaller.</p>
+
+          <h3>Choosing a quality level</h3>
+          <p>For photos, 80% usually looks identical to the original at roughly a quarter of the size. Drop to 60–70% for thumbnails and social images, and stay at 90% or above for product shots or anything with fine text.</p>
+
+          <h3>Resize for the biggest wins</h3>
+          <p>A 4000-px-wide photo displayed at 800 px is carrying five times the data it needs. Capping the width to your actual display size often saves more than the quality slider alone.</p>
+
+          <p><strong>Privacy:</strong> every step — reading, resizing and encoding — happens on your device using an off-screen canvas. There is no server in the middle, so your photos are never transmitted or stored.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Are my images uploaded to a server?</summary>
+            <p class="faq__answer">No. The image is read and re-encoded directly in your browser using a canvas. The file never leaves your device — you can disconnect from the internet and it still works.</p>
+          </details>
+          <details>
+            <summary>Which image formats are supported?</summary>
+            <p class="faq__answer">JPG, PNG and WebP. GIF and SVG files are rejected because re-encoding them would lose animation or vector quality.</p>
+          </details>
+          <details>
+            <summary>What quality setting should I use?</summary>
+            <p class="faq__answer">Around 80% is the sweet spot for photos — visually near-identical at a fraction of the size. Use 60–70% for smaller files and 90%+ when fine detail matters.</p>
+          </details>
+          <details>
+            <summary>Why did a PNG get bigger?</summary>
+            <p class="faq__answer">PNG is lossless, so re-encoding it as PNG rarely shrinks it — unless the image has large flat areas. For photos saved as PNG, converting to JPG or WebP gives much better savings, and the tool automatically picks the smaller result for you.</p>
+          </details>
+          <details>
+            <summary>Is my photo stored anywhere?</summary>
+            <p class="faq__answer">No. Everything happens in the browser tab; the compressed copy is created in memory and downloaded straight to your device. Nothing is saved or logged by Jivora.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="qr-code-generator.html" data-cat="everyday">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/>
+                <path d="M14 14h2.6v2.6H14z"/><path d="M18.4 18.4h2.6v2.6h-2.6z"/><path d="M20 14h1M14 20h1"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">QR Code Generator</span>
+              <span class="rel-card__cat">Everyday Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="word-counter.html" data-cat="text">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Word Counter</span>
+              <span class="rel-card__cat">Text Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="json-formatter.html" data-cat="developer">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.5 4c-2 0-3 1.1-3 3v1.8c0 1.4-1 2.4-2.5 3.2 1.5.8 2.5 1.8 2.5 3.2V17c0 1.9 1 3 3 3"/>
+                <path d="M14.5 4c2 0 3 1.1 3 3v1.8c0 1.4 1 2.4 2.5 3.2-1.5.8-2.5 1.8-2.5 3.2V17c0 1.9-1 3-3 3"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">JSON Formatter</span>
+              <span class="rel-card__cat">Developer Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/image-compressor.js"></script>
+</body>
+</html>

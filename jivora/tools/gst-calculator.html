@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GST Calculator — Add or Remove GST Instantly | Jivora</title>
+  <meta name="description" content="Add GST to a price or remove GST from an inclusive amount with any rate. See the original amount, GST amount and final total — free, instant and private.">
+  <link rel="canonical" href="https://jivora.example/tools/gst-calculator.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="GST Calculator — Add or Remove GST Instantly | Jivora">
+  <meta property="og:description" content="Add GST to a price or strip GST out of a total — original amount, GST amount and final total, instantly.">
+  <meta property="og:url" content="https://jivora.example/tools/gst-calculator.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GST Calculator — Add or Remove GST Instantly | Jivora">
+  <meta name="twitter:description" content="Add GST to a price or strip GST out of a total — original amount, GST amount and final total, instantly.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GST Calculator",
+    "url": "https://jivora.example/tools/gst-calculator.html",
+    "description": "Add GST to a price or remove GST from an inclusive amount with any rate.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I add GST to an amount?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Multiply the amount by (1 + rate ÷ 100). For example, adding 18% GST to ₹1,000 gives ₹1,000 × 1.18 = ₹1,180, of which ₹180 is GST." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I remove GST from a total?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Divide the GST-inclusive total by (1 + rate ÷ 100). For example, ₹1,180 ÷ 1.18 = ₹1,000, so the GST portion is ₹180." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which GST rates does this calculator support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The common slabs — 5%, 12%, 18% and 28% — plus 0% and any custom rate you type, so it also works for other countries' VAT or sales tax rates." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the result exact for my invoice?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The maths is exact for the rate you enter. Always confirm the correct rate for your goods or services, as GST rates depend on the item category and can change over time." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my amounts stored anywhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Everything runs locally in your browser — Jivora never receives the amounts you type." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Finance Tools", "item": "https://jivora.example/index.html#cat-finance" },
+      { "@type": "ListItem", "position": 3, "name": "GST Calculator", "item": "https://jivora.example/tools/gst-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="gst-calculator" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          <li><span aria-current="page">GST Calculator</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="finance" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9.5 8.5h5M9.5 12.5h5"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">GST Calculator</h1>
+            <p class="tool-hero__lead">Add GST to a price or remove it from a GST-inclusive total — with the original amount, GST portion and final figure shown side by side.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="GST calculator">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Try it</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="gst-form" novalidate>
+            <div class="seg" role="group" aria-label="GST mode">
+              <button type="button" class="seg__btn is-on" data-mode="add" aria-pressed="true">Add GST</button>
+              <button type="button" class="seg__btn" data-mode="remove" aria-pressed="false">Remove GST</button>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="gst-amount">Amount <span class="field-unit" id="gst-amount-unit">before GST</span></label>
+                <input type="number" id="gst-amount" min="0" step="any" inputmode="decimal" placeholder="e.g. 1000" autocomplete="off">
+                <span class="field-note" id="gst-amount-note">The base price before tax is added.</span>
+              </div>
+              <div class="field">
+                <label class="field-label" for="gst-rate">GST rate</label>
+                <select id="gst-rate">
+                  <option value="0">0%</option>
+                  <option value="5">5%</option>
+                  <option value="12">12%</option>
+                  <option value="18" selected>18%</option>
+                  <option value="28">28%</option>
+                  <option value="custom">Custom rate…</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-grid" id="gst-custom-wrap" hidden>
+              <div class="field">
+                <label class="field-label" for="gst-custom">Custom GST rate <span class="field-unit">%</span></label>
+                <input type="number" id="gst-custom" min="0" max="100" step="any" inputmode="decimal" placeholder="e.g. 3.5" autocomplete="off">
+                <span class="field-note">Any rate between 0 and 100 works — useful for other tax types too.</span>
+              </div>
+            </div>
+
+            <div class="error-box" id="gst-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit">Calculate</button>
+              <button class="btn btn--ghost" type="reset">Reset</button>
+              <button class="btn btn--soft" type="button" id="gst-copy">Copy Result</button>
+            </div>
+          </form>
+
+          <div class="result" id="gst-result" role="status" aria-live="polite">
+            <p class="result__empty">Enter an amount, pick a rate and press Calculate — the breakdown appears here.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this calculator</h2>
+        <ol class="steps">
+          <li><strong>Choose a mode.</strong> <strong>Add GST</strong> when you have a price before tax; <strong>Remove GST</strong> when your figure already includes tax (an invoice total, a shelf price).</li>
+          <li><strong>Enter the amount</strong> and pick a rate — 5%, 12%, 18%, 28%, 0% or a custom rate.</li>
+          <li><strong>Press Calculate.</strong> You get three numbers: the original amount, the GST amount and the final total.</li>
+          <li><strong>Copy the breakdown</strong> with one click, or press Reset to start over.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>GST — Goods and Services Tax — is an indirect tax added on top of most prices. Knowing how to move between “price before GST” and “price including GST” saves mistakes on invoices, quotes and budgets.</p>
+
+          <h3>Adding GST</h3>
+          <p>Multiply the base amount by (1 + rate ÷ 100). Adding 18% GST to <strong>₹1,000</strong> gives <strong>₹1,180</strong>, where the GST portion is <strong>₹180</strong>.</p>
+
+          <h3>Removing GST</h3>
+          <p>Divide the inclusive total by (1 + rate ÷ 100). From <strong>₹1,180</strong> at 18%: ₹1,180 ÷ 1.18 = <strong>₹1,000</strong>, so the tax inside the total is <strong>₹180</strong>.</p>
+
+          <h3>Common GST slabs</h3>
+          <p>In India, GST is commonly charged at 5%, 12%, 18% and 28%, with some essentials at 0%. Rates depend on the category of goods or services, so check the current rate for your item before finalising an invoice — and note that this calculator works just as well for VAT or sales tax percentages in other countries.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>How do I add GST to an amount?</summary>
+            <p class="faq__answer">Multiply the amount by (1 + rate ÷ 100). For example, adding 18% GST to ₹1,000 gives ₹1,000 × 1.18 = ₹1,180, of which ₹180 is GST.</p>
+          </details>
+          <details>
+            <summary>How do I remove GST from a total?</summary>
+            <p class="faq__answer">Divide the GST-inclusive total by (1 + rate ÷ 100). For example, ₹1,180 ÷ 1.18 = ₹1,000, so the GST portion is ₹180.</p>
+          </details>
+          <details>
+            <summary>Which GST rates does this calculator support?</summary>
+            <p class="faq__answer">The common slabs — 5%, 12%, 18% and 28% — plus 0% and any custom rate you type, so it also works for other countries' VAT or sales tax rates.</p>
+          </details>
+          <details>
+            <summary>Is the result exact for my invoice?</summary>
+            <p class="faq__answer">The maths is exact for the rate you enter. Always confirm the correct rate for your goods or services, as GST rates depend on the item category and can change over time.</p>
+          </details>
+          <details>
+            <summary>Are my amounts stored anywhere?</summary>
+            <p class="faq__answer">No. Everything runs locally in your browser — Jivora never receives the amounts you type.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="emi-calculator.html" data-cat="finance">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10 12 4l9 6"/><path d="M5.5 10.5V18M9.8 10.5V18M14.2 10.5V18M18.5 10.5V18"/><path d="M3 21h18"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">EMI Calculator</span>
+              <span class="rel-card__cat">Finance Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="percentage-calculator.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/><path d="M19 5 5 19"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Percentage Calculator</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="qr-code-generator.html" data-cat="everyday">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/>
+                <path d="M14 14h2.6v2.6H14z"/><path d="M18.4 18.4h2.6v2.6h-2.6z"/><path d="M20 14h1M14 20h1"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">QR Code Generator</span>
+              <span class="rel-card__cat">Everyday Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/gst-calculator.js"></script>
+</body>
+</html>

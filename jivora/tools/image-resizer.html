@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Resizer — Resize JPG, PNG &amp; WebP to exact dimensions | Jivora</title>
+  <meta name="description" content="Resize images to exact pixels in your browser with an aspect-ratio lock and side-by-side size comparison. JPG, PNG and WebP supported — nothing is uploaded.">
+  <link rel="canonical" href="https://jivora.example/tools/image-resizer.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Image Resizer — Resize JPG, PNG &amp; WebP to exact dimensions | Jivora">
+  <meta property="og:description" content="Resize images to exact pixels with an aspect-ratio lock and before/after size comparison — entirely in your browser, nothing uploaded.">
+  <meta property="og:url" content="https://jivora.example/tools/image-resizer.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Resizer — Resize JPG, PNG &amp; WebP to exact dimensions | Jivora">
+  <meta name="twitter:description" content="Resize images to exact pixels with an aspect-ratio lock and before/after size comparison.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image Resizer",
+    "url": "https://jivora.example/tools/image-resizer.html",
+    "description": "Resize images to exact pixels in your browser with an aspect-ratio lock and side-by-side size comparison.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which image formats can I resize?",
+        "acceptedAnswer": { "@type": "Answer", "text": "JPG, PNG and WebP. The output keeps the same format as the input. GIF and SVG files are rejected because re-encoding them would lose animation or vector quality." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does resizing reduce image quality?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Shrinking uses high-quality smoothing and looks crisp in practice. Enlarging cannot invent detail — a photo blown past its original size will look softer, so scale up only when you must." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the aspect-ratio lock work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "With the lock on (the default), editing the width automatically updates the height — and vice versa — so proportions never change. Turn it off to enter exact independent dimensions, for example when matching a fixed upload slot." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will the resized file be smaller?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Usually yes when shrinking, since fewer pixels mean less data. The comparison shows the exact before and after bytes for your own file before you download — if the result is somehow larger, the tool says so plainly." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my images uploaded to a server?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Resizing happens on an off-screen canvas inside your browser tab. The file never leaves your device — the tool works with the internet disconnected." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://jivora.example/index.html#cat-image" },
+      { "@type": "ListItem", "position": 3, "name": "Image Resizer", "item": "https://jivora.example/tools/image-resizer.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="image-resizer" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-image">Image Tools</a></li>
+          <li><span aria-current="page">Image Resizer</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="image" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.3" r="1.7"/><path d="m4 18.5 5-5 4 4 3-3 4 4"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">Image Resizer</h1>
+            <p class="tool-hero__lead">Resize photos to exact pixel dimensions with a live aspect-ratio lock — and see the before/after file sizes before you download. All inside your browser.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Image resizer">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Resize an image</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <label class="dropzone" id="rs-dropzone" for="rs-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 16V4M12 4 7.5 8.5M12 4l4.5 4.5"/>
+              <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
+            </svg>
+            <span class="dropzone__title">Drop an image here, or click to browse</span>
+            <span class="dropzone__hint">JPG · PNG · WebP · up to 20 MB · processed locally</span>
+            <input type="file" id="rs-file" accept="image/jpeg,image/png,image/webp">
+          </label>
+
+          <form id="rs-form" novalidate>
+            <div class="field-grid" style="margin-top: 22px;">
+              <div class="field">
+                <label class="field-label" for="rs-width">Width <span class="field-unit">px</span></label>
+                <input type="number" id="rs-width" min="1" max="8000" step="1" placeholder="—" inputmode="numeric">
+              </div>
+              <div class="field">
+                <label class="field-label" for="rs-height">Height <span class="field-unit">px</span></label>
+                <input type="number" id="rs-height" min="1" max="8000" step="1" placeholder="—" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="check-grid" style="margin-top: 4px;">
+              <label class="check"><input type="checkbox" id="rs-lock" checked> Keep aspect ratio</label>
+            </div>
+
+            <div class="error-box" id="rs-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit" id="rs-apply">Resize image</button>
+              <button class="btn btn--ghost" type="button" id="rs-orig">Reset to original size</button>
+            </div>
+          </form>
+
+          <div class="result" id="rs-result" role="status" aria-live="polite">
+            <p class="result__empty">Choose an image above — set the dimensions, then compare both file sizes here before downloading.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this image resizer</h2>
+        <ol class="steps">
+          <li><strong>Pick an image.</strong> Drag a JPG, PNG or WebP file onto the dropzone, or click to browse. Its original dimensions fill the width and height boxes.</li>
+          <li><strong>Enter new dimensions.</strong> With the aspect-ratio lock on, changing one box updates the other automatically. Switch the lock off for exact independent sizes.</li>
+          <li><strong>Press Resize image.</strong> The result shows the original and resized versions side by side with their exact file sizes and the percentage change.</li>
+          <li><strong>Download</strong> to save the new file, or change the numbers and resize again — the same source image is reused, so you can try several sizes quickly.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>Resizing is the most reliable way to hit a target: an upload slot with fixed pixels, an avatar, a header image, a document figure. Done in a browser canvas, it needs no software install and no upload.</p>
+
+          <h3>Shrinking vs enlarging</h3>
+          <p>When you shrink, the tool averages groups of pixels into one, which keeps edges clean and detail tight. When you enlarge, the browser interpolates — it guesses the in-between pixels. That's fine for small bumps (a thumbnail to a preview), but pushing a photo far past its native size gives a soft, blocky result no tool can fully repair.</p>
+
+          <h3>Dimensions vs file size</h3>
+          <p>Pixel dimensions drive file size more than anything else: halving both sides cuts the pixel count to a quarter. If you need a smaller file at full size, that's compression's job — pair this with the <a href="image-compressor.html">Image Compressor</a> for the quality slider.</p>
+
+          <h3>Format stays put</h3>
+          <p>The resized file keeps your input's format: JPG stays JPG (re-encoded at high quality), PNG stays PNG (lossless), WebP stays WebP. Transparency in PNG and WebP survives resizing. Need a format change instead? Use <a href="jpg-to-png.html">JPG to PNG</a> or <a href="png-to-jpg.html">PNG to JPG</a>.</p>
+
+          <p><strong>Privacy:</strong> the image is read, scaled and encoded entirely on your device. There is no upload step at all.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Which image formats can I resize?</summary>
+            <p class="faq__answer">JPG, PNG and WebP. The output keeps the same format as the input. GIF and SVG files are rejected because re-encoding them would lose animation or vector quality.</p>
+          </details>
+          <details>
+            <summary>Does resizing reduce image quality?</summary>
+            <p class="faq__answer">Shrinking uses high-quality smoothing and looks crisp in practice. Enlarging cannot invent detail — a photo blown past its original size will look softer, so scale up only when you must.</p>
+          </details>
+          <details>
+            <summary>How does the aspect-ratio lock work?</summary>
+            <p class="faq__answer">With the lock on (the default), editing the width automatically updates the height — and vice versa — so proportions never change. Turn it off to enter exact independent dimensions, for example when matching a fixed upload slot.</p>
+          </details>
+          <details>
+            <summary>Will the resized file be smaller?</summary>
+            <p class="faq__answer">Usually yes when shrinking, since fewer pixels mean less data. The comparison shows the exact before and after bytes for your own file before you download — if the result is somehow larger, the tool says so plainly.</p>
+          </details>
+          <details>
+            <summary>Are my images uploaded to a server?</summary>
+            <p class="faq__answer">No. Resizing happens on an off-screen canvas inside your browser tab. The file never leaves your device — the tool works with the internet disconnected.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="image-compressor.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/><rect x="9" y="9" width="6" height="6" rx="1.2"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Image Compressor</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="image-cropper.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Image Cropper</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="png-to-jpg.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.3" r="1.7"/><path d="m4 18.5 5-5 4 4 3-3 4 4"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">PNG to JPG</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/image-resizer.js"></script>
+</body>
+</html>

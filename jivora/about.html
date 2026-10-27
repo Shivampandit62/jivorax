@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Jivora — Why We Build Simple, Private Tools</title>
+  <meta name="description" content="Jivora exists because useful everyday tools shouldn't demand an account, an upload or your patience. Learn why we build free, browser-first tools.">
+  <link rel="canonical" href="https://jivora.example/about.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="About Jivora — Why We Build Simple, Private Tools">
+  <meta property="og:description" content="Useful everyday tools shouldn't demand an account, an upload or your patience. That's why Jivora exists.">
+  <meta property="og:url" content="https://jivora.example/about.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Jivora — Why We Build Simple, Private Tools">
+  <meta name="twitter:description" content="Useful everyday tools shouldn't demand an account, an upload or your patience.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="js/config.js"></script>
+  <script defer src="js/analytics.js"></script>
+  <script defer src="js/tools-data.js"></script>
+  <script defer src="js/search.js"></script>
+  <script defer src="js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Jivora",
+    "url": "https://jivora.example/about.html",
+    "description": "Why Jivora exists: free, fast, privacy-friendly tools that work in your browser with no signup.",
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+</head>
+
+<body class="page-about" data-page="page" data-root="">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="tools/index.html">Tools</a>
+        <a class="nav-link" href="index.html#categories">Categories</a>
+        <a class="nav-link is-active" href="about.html" aria-current="page">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="index.html">Home</a>
+        <a href="tools/index.html">Tools</a>
+        <a href="index.html#categories">Categories</a>
+        <a class="is-active" href="about.html" aria-current="page">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <span class="hero-blob hero-blob--1" aria-hidden="true"></span>
+      <span class="hero-blob hero-blob--2" aria-hidden="true"></span>
+      <div class="container">
+        <div class="page-hero__inner">
+          <p class="page-hero__kicker">About Jivora</p>
+          <h1 class="page-hero__title">Why Jivora? <span class="grad-text">Useful tools. Made simple.</span></h1>
+          <p class="page-hero__lead">Because a percentage, a QR code or a word count should take seconds — not a signup, an upload and three cookie banners.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="prose">
+          <p>Jivora is a small collection of everyday tools that live in your browser. Calculators, formatters, generators and counters — each one does a single job well, loads instantly and asks nothing of you.</p>
+
+          <h2>The problem with most online tools</h2>
+          <p>Search for almost any simple tool and you land on a page wrapped in advertising, a "create a free account to see your result" wall, or a form that quietly ships your data to a server you've never heard of. The tool itself is usually an afterthought.</p>
+          <p>That's backwards. The tool should be the whole point: open the page, get the answer, get on with your day.</p>
+
+          <h2>What Jivora believes</h2>
+          <ul>
+            <li><strong>No accounts, ever.</strong> There is no login or signup anywhere on Jivora, and there never will be. You don't need to identify yourself to calculate a percentage.</li>
+            <li><strong>Processing belongs on your device.</strong> Wherever possible, the work happens in your browser with JavaScript — your numbers, text, JSON and images are never uploaded. You can disconnect from the internet mid-task and most tools will keep working.</li>
+            <li><strong>Free means free.</strong> Every tool is free to use, with no paywalled "premium" results or daily limits.</li>
+            <li><strong>Honest roadmaps.</strong> Tools that aren't finished are labelled <em>Coming soon</em> instead of pretending to work. If a button exists, it works.</li>
+            <li><strong>Speed is a feature.</strong> The site is plain HTML, CSS and JavaScript with no framework and no build step, so pages load fast on any connection.</li>
+          </ul>
+
+          <div class="callout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            <span><strong>The short version:</strong> if a tool can run entirely in your browser, Jivora runs it there. Your data stays yours — see the <a href="privacy.html">Privacy Policy</a> for the details.</span>
+          </div>
+
+          <h2>How the tools are built</h2>
+          <p>Every tool is hand-written JavaScript with no server-side component: the QR generator implements the QR standard directly, the image compressor re-encodes files on an off-screen canvas, and the calculators do their math locally. Nothing you type is transmitted by Jivora itself.</p>
+          <p>The site works from any static host — GitHub Pages, Netlify or Cloudflare Pages — which keeps it fast, cheap to run and independent of any backend that could log your input.</p>
+
+          <h2>What's next</h2>
+          <p>The directory already lists the roadmap: more student and finance calculators, developer utilities and image tools are on the way. Each one will appear the moment it actually works — clearly marked, tested and just as private as everything else here.</p>
+          <p>Ideas, bugs or a tool you wish existed? <a href="contact.html">Send a note</a> — it all goes to a human.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--sm">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Meet the Creator</p>
+          <h2 class="section-title">Shivam Pandey</h2>
+          <p class="section-sub">Founder &amp; Developer of Jivora</p>
+        </div>
+
+        <div class="creator-card">
+          <blockquote class="creator-quote">“I'm a Computer Science student passionate about building simple, useful, and accessible web tools. I created Jivora to make everyday online tasks easier for everyone.”</blockquote>
+          <div class="creator-links">
+            <a class="btn btn--soft" href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn--ghost" href="mailto:shivampandey30791@gmail.com">shivampandey30791@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--sm">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Quick questions</h2>
+          <p class="section-sub">The things people usually ask first.</p>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Is Jivora really free?</summary>
+            <p class="faq__answer">Yes — every tool, with no accounts, limits or paywalled results. The site has no costs to pass on: it's static files served from a free host, and everything runs on your device.</p>
+          </details>
+          <details>
+            <summary>Do I need to create an account?</summary>
+            <p class="faq__answer">No. There is no login or signup anywhere on Jivora, and none is planned. Open a tool and use it.</p>
+          </details>
+          <details>
+            <summary>What data does Jivora collect?</summary>
+            <p class="faq__answer">Tool inputs — your numbers, text, JSON and images — are processed in your browser and never sent anywhere. Standard anonymous analytics may record page views and tool names, but not what you type. See the <a href="privacy.html">Privacy Policy</a>.</p>
+          </details>
+          <details>
+            <summary>Can I suggest a tool?</summary>
+            <p class="faq__answer">Absolutely. Use the <a href="contact.html">contact page</a> — suggestions from real users shape the roadmap directly.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="index.html#popular">Popular Tools</a></li>
+            <li><a href="index.html#cat-student">Student Tools</a></li>
+            <li><a href="index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

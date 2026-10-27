@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Jivora">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1226"/>
+      <stop offset="1" stop-color="#131c3d"/>
+    </linearGradient>
+    <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f7cff"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path d="M37 13v25a12 12 0 0 1-12 12h-5a8.5 8.5 0 0 1-8.5-8.5"
+        fill="none" stroke="url(#spark)" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="45" cy="18" r="5.5" fill="#34d8f0"/>
+</svg>

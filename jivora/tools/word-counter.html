@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Counter — Live Words, Characters &amp; Reading Time | Jivora</title>
+  <meta name="description" content="Count words, characters, sentences and paragraphs as you type, with a reading-time estimate. Free, instant and private — no signup required.">
+  <link rel="canonical" href="https://jivora.example/tools/word-counter.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Word Counter — Live Words, Characters &amp; Reading Time | Jivora">
+  <meta property="og:description" content="Live word, character, sentence and paragraph counts as you type — plus reading time. Counts never leave your browser.">
+  <meta property="og:url" content="https://jivora.example/tools/word-counter.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Word Counter — Live Words, Characters &amp; Reading Time | Jivora">
+  <meta name="twitter:description" content="Live word, character, sentence and paragraph counts as you type — plus reading time.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Word Counter",
+    "url": "https://jivora.example/tools/word-counter.html",
+    "description": "Count words, characters, sentences and paragraphs as you type, with a reading-time estimate.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the word counter count words?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Words are groups of characters separated by spaces or line breaks, so “hello world” counts as two words. Leading and trailing spaces are ignored." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it count characters with or without spaces?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Both. Characters counts everything you type, including spaces and line breaks, while Characters (no spaces) counts only letters, numbers and punctuation." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is reading time calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Using an average reading speed of 200 words per minute. Short texts are rounded to seconds and longer texts to whole minutes." }
+      },
+      {
+        "@type": "Question",
+        "name": "What counts as a sentence or a paragraph?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A sentence is each block of text ending with a full stop, question mark, exclamation mark or ellipsis. A paragraph is a block of text separated from the next one by a blank line." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my text uploaded or stored?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Counting happens entirely in your browser as you type — your text is never sent to a server or saved by Jivora." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Text Tools", "item": "https://jivora.example/index.html#cat-text" },
+      { "@type": "ListItem", "position": 3, "name": "Word Counter", "item": "https://jivora.example/tools/word-counter.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="word-counter" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-text">Text Tools</a></li>
+          <li><span aria-current="page">Word Counter</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="text" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">Word Counter</h1>
+            <p class="tool-hero__lead">Count words, characters, sentences and paragraphs live as you type — with a reading-time estimate for your text. Perfect for essays, captions and character limits.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Word counter">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Start typing</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="wc-form" novalidate>
+            <div class="field">
+              <label class="field-label" for="wc-text">Your text <span class="field-unit">counts update live</span></label>
+              <textarea class="input" id="wc-text" rows="10" placeholder="Paste an essay, a draft, a caption — or just start typing."></textarea>
+              <p class="field-note">Your text stays in this browser tab and is never uploaded.</p>
+            </div>
+
+            <div class="error-box" id="wc-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="button" id="wc-copy">Copy Stats</button>
+              <button class="btn btn--ghost" type="reset">Clear</button>
+            </div>
+          </form>
+
+          <div class="result" id="wc-result" role="status" aria-live="polite">
+            <p class="result__label">Live counts</p>
+            <div class="wordstats" id="wc-stats">
+              <div class="wordstat"><div class="wordstat__v" id="wc-words">0</div><div class="wordstat__k">Words</div></div>
+              <div class="wordstat"><div class="wordstat__v" id="wc-chars">0</div><div class="wordstat__k">Characters</div></div>
+              <div class="wordstat"><div class="wordstat__v" id="wc-chars-ns">0</div><div class="wordstat__k">No spaces</div></div>
+              <div class="wordstat"><div class="wordstat__v" id="wc-sentences">0</div><div class="wordstat__k">Sentences</div></div>
+              <div class="wordstat"><div class="wordstat__v" id="wc-paragraphs">0</div><div class="wordstat__k">Paragraphs</div></div>
+              <div class="wordstat"><div class="wordstat__v" id="wc-reading">0 min</div><div class="wordstat__k">Reading time</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this word counter</h2>
+        <ol class="steps">
+          <li><strong>Type or paste your text.</strong> Drop an essay, a blog draft, a tweet or any text straight into the box — the counts refresh on every keystroke.</li>
+          <li><strong>Read the six stats.</strong> Words, characters (with and without spaces), sentences, paragraphs and estimated reading time are shown together.</li>
+          <li><strong>Watch character limits.</strong> Use the “No spaces” figure when a form counts only letters and punctuation, and “Characters” for limits that count everything.</li>
+          <li><strong>Copy or clear.</strong> <strong>Copy Stats</strong> puts the full breakdown on your clipboard; <strong>Clear</strong> empties the box so you can start fresh.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>A word counter is one of those small tools you reach for constantly: finishing an essay with a word limit, trimming a bio to fit a profile, or checking whether a caption is too long. Jivora counts as you type, so there is no button to press and nothing to upload.</p>
+
+          <h3>How words are counted</h3>
+          <p>A word is any run of characters separated by spaces or line breaks. “hello world” is two words, and extra spaces between words are ignored — so pasted text with messy spacing still counts correctly.</p>
+
+          <h3>Characters with and without spaces</h3>
+          <p>The <strong>Characters</strong> figure counts every keystroke, including spaces and line breaks. <strong>No spaces</strong> strips whitespace first, which is what many application forms and username fields actually limit.</p>
+
+          <h3>Sentences and paragraphs</h3>
+          <p>Each block ending in a full stop, question mark, exclamation mark or ellipsis counts as one sentence. Paragraphs are blocks separated by a blank line — so press Enter twice to start a new paragraph.</p>
+
+          <p><strong>Reading time</strong> uses an average pace of 200 words per minute, which is a common estimate for non-fiction prose. Technical or dense text usually takes longer; light, conversational text usually takes less.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>How does the word counter count words?</summary>
+            <p class="faq__answer">Words are groups of characters separated by spaces or line breaks, so “hello world” counts as two words. Leading and trailing spaces are ignored.</p>
+          </details>
+          <details>
+            <summary>Does it count characters with or without spaces?</summary>
+            <p class="faq__answer">Both. Characters counts everything you type, including spaces and line breaks, while Characters (no spaces) counts only letters, numbers and punctuation.</p>
+          </details>
+          <details>
+            <summary>How is reading time calculated?</summary>
+            <p class="faq__answer">Using an average reading speed of 200 words per minute. Short texts are rounded to seconds and longer texts to whole minutes.</p>
+          </details>
+          <details>
+            <summary>What counts as a sentence or a paragraph?</summary>
+            <p class="faq__answer">A sentence is each block of text ending with a full stop, question mark, exclamation mark or ellipsis. A paragraph is a block of text separated from the next one by a blank line.</p>
+          </details>
+          <details>
+            <summary>Is my text uploaded or stored?</summary>
+            <p class="faq__answer">No. Counting happens entirely in your browser as you type — your text is never sent to a server or saved by Jivora.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="json-formatter.html" data-cat="developer">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.5 4c-2 0-3 1.1-3 3v1.8c0 1.4-1 2.4-2.5 3.2 1.5.8 2.5 1.8 2.5 3.2V17c0 1.9 1 3 3 3"/>
+                <path d="M14.5 4c2 0 3 1.1 3 3v1.8c0 1.4 1 2.4 2.5 3.2-1.5.8-2.5 1.8-2.5 3.2V17c0 1.9-1 3-3 3"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">JSON Formatter</span>
+              <span class="rel-card__cat">Developer Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="percentage-calculator.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/><path d="M19 5 5 19"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Percentage Calculator</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="qr-code-generator.html" data-cat="everyday">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/>
+                <path d="M14 14h2.6v2.6H14z"/><path d="M18.4 18.4h2.6v2.6h-2.6z"/><path d="M20 14h1M14 20h1"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">QR Code Generator</span>
+              <span class="rel-card__cat">Everyday Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/word-counter.js"></script>
+</body>
+</html>

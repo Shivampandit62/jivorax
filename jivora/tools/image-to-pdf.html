@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image to PDF — Turn JPG &amp; PNG photos into a PDF | Jivora</title>
+  <meta name="description" content="Combine JPG, PNG and WebP images into a single PDF document in your browser. A4 print-ready pages or original size, one page per image, nothing uploaded.">
+  <link rel="canonical" href="https://jivora.example/tools/image-to-pdf.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Image to PDF — Turn JPG &amp; PNG photos into a PDF | Jivora">
+  <meta property="og:description" content="Combine JPG, PNG and WebP images into one PDF in your browser — A4 print-ready or original size. Nothing is uploaded.">
+  <meta property="og:url" content="https://jivora.example/tools/image-to-pdf.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image to PDF — Turn JPG &amp; PNG photos into a PDF | Jivora">
+  <meta name="twitter:description" content="Combine JPG, PNG and WebP images into one PDF in your browser — A4 print-ready or original size.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Image to PDF",
+    "url": "https://jivora.example/tools/image-to-pdf.html",
+    "description": "Combine JPG, PNG and WebP images into a single PDF document in your browser. A4 print-ready pages or original size, one page per image.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Which images can I convert?",
+        "acceptedAnswer": { "@type": "Answer", "text": "JPG, PNG and WebP files, up to 20 images at a time (20 MB each). Each image becomes one page of the PDF, in the order you selected them." }
+      },
+      {
+        "@type": "Question",
+        "name": "How are the pages sized?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Fit to A4 centres each image on a standard A4 page — landscape or portrait depending on the picture — ready to print. Original image size uses the image's own pixel dimensions as the page, with no scaling at all." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my images uploaded to make the PDF?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The document is assembled byte by byte inside this tab: your images are read, embedded and written into the PDF on your device. Nothing is sent anywhere." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why can the PDF be smaller than the images?",
+        "acceptedAnswer": { "@type": "Answer", "text": "JPGs are embedded byte for byte — no re-encoding, so no quality loss. PNG and WebP images are drawn on a canvas at the chosen resolution and compressed into the PDF; transparent areas are filled with white. That is where the savings come from." }
+      },
+      {
+        "@type": "Question",
+        "name": "How big can the PDF get?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Photo-heavy documents grow quickly because PDF pages store pixels as images. Twenty large photos can produce a file of tens of megabytes — lower the resolution cap or split the document if you need it smaller." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Image Tools", "item": "https://jivora.example/index.html#cat-image" },
+      { "@type": "ListItem", "position": 3, "name": "Image to PDF", "item": "https://jivora.example/tools/image-to-pdf.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="image-to-pdf" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-image">Image Tools</a></li>
+          <li><span aria-current="page">Image to PDF</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="image" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.3" r="1.7"/><path d="m4 18.5 5-5 4 4 3-3 4 4"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="tool-hero__title">Image to PDF</h1>
+            <p class="tool-hero__lead">Turn one photo — or twenty — into a single PDF document with print-ready A4 pages or original-size pages, assembled entirely inside your browser.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Image to PDF converter">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Build a PDF from images</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <label class="dropzone" id="i2p-dropzone" for="i2p-file">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 16V4M12 4 7.5 8.5M12 4l4.5 4.5"/>
+              <path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
+            </svg>
+            <span class="dropzone__title">Drop images here, or click to browse</span>
+            <span class="dropzone__hint">JPG · PNG · WebP · up to 20 files · processed locally</span>
+            <input type="file" id="i2p-file" accept="image/jpeg,image/png,image/webp" multiple>
+          </label>
+
+          <form id="i2p-form" novalidate>
+            <div class="result__rows" id="i2p-list" style="margin-top: 18px;" hidden></div>
+
+          <div class="field-grid" style="margin-top: 22px;">
+            <div class="field">
+              <label class="field-label" for="i2p-mode">Page size</label>
+              <select id="i2p-mode">
+                <option value="a4" selected>Fit to A4 (print-ready)</option>
+                <option value="natural">Original image size</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="i2p-max">Resolution <span class="field-unit">for PNG &amp; WebP</span></label>
+              <select id="i2p-max">
+                <option value="2000" selected>Fit up to 2000 px per side</option>
+                <option value="1200">Fit up to 1200 px per side</option>
+                <option value="0">Keep original resolution</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="error-box" id="i2p-error" role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+            </svg>
+            <span></span>
+          </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit" id="i2p-create">Create PDF</button>
+              <button class="btn btn--ghost" type="button" id="i2p-clear">Clear all</button>
+            </div>
+          </form>
+
+          <div class="result" id="i2p-result" role="status" aria-live="polite" style="margin-top: 18px;">
+            <p class="result__empty">Choose one or more images above — your PDF download will appear here.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this converter</h2>
+        <ol class="steps">
+          <li><strong>Select your images.</strong> Drag several JPG, PNG or WebP files onto the dropzone at once (or click to browse). They are listed in the order they'll appear as pages.</li>
+          <li><strong>Pick a page size.</strong> Fit to A4 centres each image on a standard sheet — landscape or portrait to match the picture. Original image size uses the image's exact pixel dimensions with no scaling.</li>
+          <li><strong>Press Create PDF.</strong> The tool shows progress while it embeds each image, then reports the page count and final file size.</li>
+          <li><strong>Download.</strong> Save the PDF and open it in any viewer or send it to a printer. Need different settings? Change them and build again from the same selection.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>A PDF is the universal hand-in format: one file, same pages on every device, ready to print or upload to a portal. This tool builds one directly from your images — no office suite, no upload, no watermark.</p>
+
+          <h3>How the pages are built</h3>
+          <p>Each image becomes exactly one page, in selection order. JPGs are embedded <strong>byte for byte</strong> — the original compressed data is copied into the document, so there is no second round of quality loss. PNG and WebP files are rasterised on a canvas (at the resolution cap you choose) and compressed into the page; transparent pixels are filled with white so they print correctly.</p>
+
+          <h3>A4 fit vs original size</h3>
+          <p><strong>Fit to A4</strong> scales each image to sit centred on 595 × 842 points, flipping to landscape for wide pictures — print it and it lands where you expect. <strong>Original image size</strong> makes the page exactly as big as the pixels (72 pixels per point), which is right when another tool or archive needs the image untouched.</p>
+
+          <h3>Keeping the file small</h3>
+          <p>The resolution cap only affects PNG and WebP — JPGs keep their original bytes because re-encoding them would only add loss. If the PDF comes out heavy, lower the cap or compress the PNGs first with the <a href="image-compressor.html">Image Compressor</a>.</p>
+
+          <h3>What it doesn't do</h3>
+          <p>There's no page numbering, text overlay, merging of existing PDFs or OCR — pages are images, exactly as you supplied them. The tool does exactly what it says and nothing more.</p>
+
+          <p><strong>Privacy:</strong> reading, encoding and document assembly all happen in this tab. Your images never reach a server.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>Which images can I convert?</summary>
+            <p class="faq__answer">JPG, PNG and WebP files, up to 20 images at a time (20 MB each). Each image becomes one page of the PDF, in the order you selected them.</p>
+          </details>
+          <details>
+            <summary>How are the pages sized?</summary>
+            <p class="faq__answer">Fit to A4 centres each image on a standard A4 page — landscape or portrait depending on the picture — ready to print. Original image size uses the image's own pixel dimensions as the page, with no scaling at all.</p>
+          </details>
+          <details>
+            <summary>Are my images uploaded to make the PDF?</summary>
+            <p class="faq__answer">No. The document is assembled byte by byte inside this tab: your images are read, embedded and written into the PDF on your device. Nothing is sent anywhere.</p>
+          </details>
+          <details>
+            <summary>Why can the PDF be smaller than the images?</summary>
+            <p class="faq__answer">JPGs are embedded byte for byte — no re-encoding, so no quality loss. PNG and WebP images are drawn on a canvas at the chosen resolution and compressed into the PDF; transparent areas are filled with white. That is where the savings come from.</p>
+          </details>
+          <details>
+            <summary>How big can the PDF get?</summary>
+            <p class="faq__answer">Photo-heavy documents grow quickly because PDF pages store pixels as images. Twenty large photos can produce a file of tens of megabytes — lower the resolution cap or split the document if you need it smaller.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="image-resizer.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.3" r="1.7"/><path d="m4 18.5 5-5 4 4 3-3 4 4"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Image Resizer</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="image-compressor.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/><rect x="9" y="9" width="6" height="6" rx="1.2"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Image Compressor</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="image-cropper.html" data-cat="image">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2v14a2 2 0 0 0 2 2h14"/><path d="M18 22V8a2 2 0 0 0-2-2H2"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Image Cropper</span>
+              <span class="rel-card__cat">Image Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/image-to-pdf.js"></script>
+</body>
+</html>

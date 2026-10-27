@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Timer — Focused Countdown for Study Sessions | Jivora</title>
+  <meta name="description" content="A simple study countdown timer with a custom length, progress bar and a chime when time is up. Free, instant and private — no signup required.">
+  <link rel="canonical" href="https://jivora.example/tools/study-timer.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Study Timer — Focused Countdown for Study Sessions | Jivora">
+  <meta property="og:description" content="Set a custom focus length, watch the progress bar and get a chime when your study block ends.">
+  <meta property="og:url" content="https://jivora.example/tools/study-timer.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Study Timer — Focused Countdown for Study Sessions | Jivora">
+  <meta name="twitter:description" content="Set a custom focus length, watch the progress bar and get a chime when your study block ends.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Study Timer",
+    "url": "https://jivora.example/tools/study-timer.html",
+    "description": "A simple study countdown timer with a custom length, progress bar and a chime when time is up.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the study timer work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Choose how many minutes you want to focus for, press Start, and the timer counts down with a progress bar. A soft chime plays when the block ends." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the timer keep running in the background?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The countdown is based on your device clock, so it stays accurate even if the browser throttles the tab. It only runs while this page is open — there is no push notification." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change the session length?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes — anywhere from 1 to 180 minutes. You can edit the length while the timer is idle, and Reset always returns it to the value you set." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference from a Pomodoro timer?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Study Timer runs one block of any length. The Pomodoro Timer runs classic 25/5 cycles with automatic breaks and a long break every four sessions." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my session history stored?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The completed-session counter lives only in this tab and disappears when you refresh or close the page — nothing is saved or uploaded." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Student Tools", "item": "https://jivora.example/index.html#cat-student" },
+      { "@type": "ListItem", "position": 3, "name": "Study Timer", "item": "https://jivora.example/tools/study-timer.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="study-timer" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-student">Student Tools</a></li>
+          <li><span aria-current="page">Study Timer</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="student" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2.5 4.8 13.4h6.1L10.4 21.5l8.3-11.2h-6.1L13 2.5Z"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">Study Timer</h1>
+            <p class="tool-hero__lead">One focused block, any length you want: set the minutes, press start and let the countdown keep you on task — with a chime when your time is up.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Study timer">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Start a session</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="st-form" novalidate>
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="st-minutes">Focus length <span class="field-unit">minutes</span></label>
+                <input type="number" id="st-minutes" min="1" max="180" step="1" value="25" inputmode="numeric">
+              </div>
+              <div class="field">
+                <label class="field-label">Quick presets</label>
+                <div class="check-grid">
+                  <button type="button" class="check" data-preset="15">15 min</button>
+                  <button type="button" class="check" data-preset="25">25 min</button>
+                  <button type="button" class="check" data-preset="45">45 min</button>
+                  <button type="button" class="check" data-preset="60">60 min</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="error-box" id="st-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit" id="st-start">Start</button>
+              <button class="btn btn--ghost" type="button" id="st-reset">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" id="st-result" role="status" aria-live="polite">
+            <p class="result__label" id="st-status">Ready when you are</p>
+            <p class="result__primary grad-text" id="st-time">25:00</p>
+            <div class="bar" aria-hidden="true">
+              <span class="bar__seg bar__seg--principal" id="st-bar" style="width: 0%"></span>
+            </div>
+            <div class="result__rows">
+              <div class="result-row"><span class="result-row__k">Sessions completed</span><span class="result-row__v" id="st-done">0</span></div>
+              <div class="result-row"><span class="result-row__k">Total focus time</span><span class="result-row__v" id="st-total">0 min</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this timer</h2>
+        <ol class="steps">
+          <li><strong>Set your block.</strong> Type a length between 1 and 180 minutes, or tap one of the presets (15 / 25 / 45 / 60).</li>
+          <li><strong>Press Start.</strong> The countdown begins immediately and the progress bar fills as you work.</li>
+          <li><strong>Stay with it.</strong> Pause any time with the same button; the remaining time holds exactly where you left it.</li>
+          <li><strong>Finish and repeat.</strong> A chime sounds at zero, the session is counted, and you can start the next block right away.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>A study timer works because it turns a vague intention (“I should study”) into a concrete, bounded commitment. When the end time is visible, it's much easier to resist checking your phone — the break is already scheduled.</p>
+
+          <h3>Choosing a block length</h3>
+          <p>Start with 25 minutes if you're easily distracted, 45–50 if you can hold focus, and 90 for deep work on a good day. The right length is the longest one you can finish without drifting — if you're constantly watching the clock, go shorter.</p>
+
+          <h3>Accurate even in the background</h3>
+          <p>The timer stores your end time rather than counting ticks, so a throttled background tab won't lose seconds. When you come back, the display catches up to real time. The trade-off: it only works while the page is open — there's no push notification, so pair it with the audible chime.</p>
+
+          <h3>One block vs cycles</h3>
+          <p>This tool runs a single block of any length. If you prefer the classic work/break rhythm — 25 minutes on, 5 off, long break after four rounds — use the <a href="pomodoro-timer.html">Pomodoro Timer</a> instead.</p>
+
+          <p><strong>Privacy:</strong> sessions, counts and times never leave the tab. Refresh the page and the counter starts fresh.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>How does the study timer work?</summary>
+            <p class="faq__answer">Choose how many minutes you want to focus for, press Start, and the timer counts down with a progress bar. A soft chime plays when the block ends.</p>
+          </details>
+          <details>
+            <summary>Does the timer keep running in the background?</summary>
+            <p class="faq__answer">The countdown is based on your device clock, so it stays accurate even if the browser throttles the tab. It only runs while this page is open — there is no push notification.</p>
+          </details>
+          <details>
+            <summary>Can I change the session length?</summary>
+            <p class="faq__answer">Yes — anywhere from 1 to 180 minutes. You can edit the length while the timer is idle, and Reset always returns it to the value you set.</p>
+          </details>
+          <details>
+            <summary>What is the difference from a Pomodoro timer?</summary>
+            <p class="faq__answer">The Study Timer runs one block of any length. The Pomodoro Timer runs classic 25/5 cycles with automatic breaks and a long break every four sessions.</p>
+          </details>
+          <details>
+            <summary>Is my session history stored?</summary>
+            <p class="faq__answer">No. The completed-session counter lives only in this tab and disappears when you refresh or close the page — nothing is saved or uploaded.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="pomodoro-timer.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2.5 4.8 13.4h6.1L10.4 21.5l8.3-11.2h-6.1L13 2.5Z"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Pomodoro Timer</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="word-counter.html" data-cat="text">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Word Counter</span>
+              <span class="rel-card__cat">Text Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="cgpa-calculator.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 8.5 12 4l10 4.5-10 4.5L2 8.5Z"/><path d="M6 10.8V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-5.2"/><path d="M21.5 9v5"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">CGPA Calculator</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/study-timer.js"></script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CGPA Calculator — CGPA &amp; Approximate Percentage | Jivora</title>
+  <meta name="description" content="Calculate CGPA from multiple subjects with optional credits and get an approximate percentage. Free, instant and private — with a clear note that conversion formulas vary by institution.">
+  <link rel="canonical" href="https://jivora.example/tools/cgpa-calculator.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="CGPA Calculator — CGPA &amp; Approximate Percentage | Jivora">
+  <meta property="og:description" content="Calculate CGPA from multiple subjects and get an approximate percentage — in seconds, in your browser.">
+  <meta property="og:url" content="https://jivora.example/tools/cgpa-calculator.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CGPA Calculator — CGPA &amp; Approximate Percentage | Jivora">
+  <meta name="twitter:description" content="Calculate CGPA from multiple subjects and get an approximate percentage — in seconds, in your browser.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CGPA Calculator",
+    "url": "https://jivora.example/tools/cgpa-calculator.html",
+    "description": "Calculate CGPA from multiple subjects with optional credits and get an approximate percentage.",
+    "applicationCategory": "EducationApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is CGPA calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "CGPA is the average of your grade points. If credits are given, it is a weighted average: multiply each grade point by its credits, add them up, and divide by the total credits. Without credits, a simple average of the grade points is used." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I convert CGPA to percentage?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Many institutions multiply CGPA by 9.5 to get a percentage, which this tool shows as an approximation. The exact formula varies between universities, so always use your institution's official conversion for formal applications." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between CGPA and GPA?",
+        "acceptedAnswer": { "@type": "Answer", "text": "GPA usually covers one semester or term, while CGPA is the cumulative average across all semesters or subjects completed so far." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this calculator without credit hours?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Leave the credits column empty and the calculator uses a simple average of your grade points instead of a credit-weighted average." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my grades stored anywhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. All calculations happen locally in your browser — your marks are never uploaded or saved by Jivora." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Student Tools", "item": "https://jivora.example/index.html#cat-student" },
+      { "@type": "ListItem", "position": 3, "name": "CGPA Calculator", "item": "https://jivora.example/tools/cgpa-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="cgpa-calculator" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-student">Student Tools</a></li>
+          <li><span aria-current="page">CGPA Calculator</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="student" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 8.5 12 4l10 4.5-10 4.5L2 8.5Z"/><path d="M6 10.8V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-5.2"/><path d="M21.5 9v5"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">CGPA Calculator</h1>
+            <p class="tool-hero__lead">Add your subjects, grade points and optional credits to get your CGPA — plus an approximate percentage, with the formula shown clearly.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="CGPA calculator">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Try it</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="cgpa-form" novalidate>
+            <div class="rows-head" aria-hidden="true">
+              <span>Subject</span><span>Grade point</span><span>Credits</span><span></span>
+            </div>
+
+            <div class="rows" id="cgpa-rows">
+              <div class="crow">
+                <input class="crow__name" type="text" placeholder="Subject name (optional)" aria-label="Subject name" autocomplete="off">
+                <input type="number" step="0.01" min="0" max="10" placeholder="0–10" aria-label="Grade point" data-gp inputmode="decimal">
+                <input type="number" step="0.5" min="0" placeholder="Credits" aria-label="Credits (optional)" data-credits inputmode="decimal">
+                <button type="button" class="crow__remove" aria-label="Remove subject">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+              </div>
+              <div class="crow">
+                <input class="crow__name" type="text" placeholder="Subject name (optional)" aria-label="Subject name" autocomplete="off">
+                <input type="number" step="0.01" min="0" max="10" placeholder="0–10" aria-label="Grade point" data-gp inputmode="decimal">
+                <input type="number" step="0.5" min="0" placeholder="Credits" aria-label="Credits (optional)" data-credits inputmode="decimal">
+                <button type="button" class="crow__remove" aria-label="Remove subject">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+              </div>
+              <div class="crow">
+                <input class="crow__name" type="text" placeholder="Subject name (optional)" aria-label="Subject name" autocomplete="off">
+                <input type="number" step="0.01" min="0" max="10" placeholder="0–10" aria-label="Grade point" data-gp inputmode="decimal">
+                <input type="number" step="0.5" min="0" placeholder="Credits" aria-label="Credits (optional)" data-credits inputmode="decimal">
+                <button type="button" class="crow__remove" aria-label="Remove subject">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn--ghost btn--sm add-row" id="cgpa-add">+ Add subject</button>
+
+            <div class="error-box" id="cgpa-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit">Calculate</button>
+              <button class="btn btn--ghost" type="reset">Reset</button>
+              <button class="btn btn--soft" type="button" id="cgpa-copy">Copy Result</button>
+            </div>
+          </form>
+
+          <div class="result" id="cgpa-result" role="status" aria-live="polite">
+            <p class="result__empty">Enter your subjects and grade points, then press Calculate — your CGPA appears here.</p>
+          </div>
+
+          <p class="disclaimer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>
+            </svg>
+            <span>Percentage conversion can vary by institution. This tool uses the common <strong>CGPA × 9.5</strong> formula as an approximation — check your university's official method before submitting anything formal.</span>
+          </p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this calculator</h2>
+        <ol class="steps">
+          <li><strong>Add your subjects.</strong> Three rows are ready — use <strong>+ Add subject</strong> for as many as you need, and the × button to remove a row.</li>
+          <li><strong>Enter each grade point</strong> on the 0–10 scale your institution uses.</li>
+          <li><strong>Credits are optional.</strong> If you know them, fill them in for a credit-weighted CGPA — otherwise leave the column empty for a simple average.</li>
+          <li><strong>Press Calculate</strong> to see your CGPA, the approximate percentage and the method used. Copy the result with one click.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>CGPA — Cumulative Grade Point Average — summarises your performance across subjects in one number. This calculator supports both of the ways it is usually computed.</p>
+
+          <h3>Credit-weighted CGPA</h3>
+          <p>When credits are available, each grade point is multiplied by the subject's credits, the products are added up, and the total is divided by the sum of credits: <strong>CGPA = Σ(grade point × credits) ÷ Σ(credits)</strong>. This is the fairer method because a 4-credit subject influences your average more than a 1-credit one.</p>
+
+          <h3>Simple average CGPA</h3>
+          <p>Without credits, the calculator averages your grade points equally. It is quick and perfectly reasonable when every subject carries the same weight.</p>
+
+          <h3>Converting CGPA to a percentage</h3>
+          <p>A widely used approximation is <strong>CGPA × 9.5</strong>, so a CGPA of 8.4 is roughly 79.8%. Some institutions use 9.0, 10.0 or their own scale entirely — for applications, transcripts and scholarships, always use your institution's official conversion.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>How is CGPA calculated?</summary>
+            <p class="faq__answer">CGPA is the average of your grade points. If credits are given, it is a weighted average: multiply each grade point by its credits, add them up, and divide by the total credits. Without credits, a simple average of the grade points is used.</p>
+          </details>
+          <details>
+            <summary>How do I convert CGPA to percentage?</summary>
+            <p class="faq__answer">Many institutions multiply CGPA by 9.5 to get a percentage, which this tool shows as an approximation. The exact formula varies between universities, so always use your institution's official conversion for formal applications.</p>
+          </details>
+          <details>
+            <summary>What is the difference between CGPA and GPA?</summary>
+            <p class="faq__answer">GPA usually covers one semester or term, while CGPA is the cumulative average across all semesters or subjects completed so far.</p>
+          </details>
+          <details>
+            <summary>Can I use this calculator without credit hours?</summary>
+            <p class="faq__answer">Yes. Leave the credits column empty and the calculator uses a simple average of your grade points instead of a credit-weighted average.</p>
+          </details>
+          <details>
+            <summary>Are my grades stored anywhere?</summary>
+            <p class="faq__answer">No. All calculations happen locally in your browser — your marks are never uploaded or saved by Jivora.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="percentage-calculator.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/><path d="M19 5 5 19"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Percentage Calculator</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="age-calculator.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Age Calculator</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="emi-calculator.html" data-cat="finance">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10 12 4l9 6"/><path d="M5.5 10.5V18M9.8 10.5V18M14.2 10.5V18M18.5 10.5V18"/><path d="M3 21h18"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">EMI Calculator</span>
+              <span class="rel-card__cat">Finance Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/cgpa-calculator.js"></script>
+</body>
+</html>

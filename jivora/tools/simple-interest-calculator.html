@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Interest Calculator — P × R × T ÷ 100 | Jivora</title>
+  <meta name="description" content="Work out simple interest and total amount on any principal, with time in years, months or days. Free, instant and private — no signup required.">
+  <link rel="canonical" href="https://jivora.example/tools/simple-interest-calculator.html">
+  <meta name="theme-color" content="#070a14">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Simple Interest Calculator — P × R × T ÷ 100 | Jivora">
+  <meta property="og:description" content="Calculate simple interest and total amount from principal, rate and time — with time in years, months or days.">
+  <meta property="og:url" content="https://jivora.example/tools/simple-interest-calculator.html">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simple Interest Calculator — P × R × T ÷ 100 | Jivora">
+  <meta name="twitter:description" content="Calculate simple interest and total amount from principal, rate and time — with time in years, months or days.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/tools.css">
+
+  <script defer src="../js/config.js"></script>
+  <script defer src="../js/analytics.js"></script>
+  <script defer src="../js/tools-data.js"></script>
+  <script defer src="../js/search.js"></script>
+  <script defer src="../js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Simple Interest Calculator",
+    "url": "https://jivora.example/tools/simple-interest-calculator.html",
+    "description": "Work out simple interest and total amount on any principal, with time in years, months or days.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "publisher": { "@type": "Organization", "name": "Jivora", "url": "https://jivora.example/" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the simple interest formula?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Interest = (Principal × Rate × Time) ÷ 100. The total amount to repay is Principal + Interest. Rate is annual and time must be in years." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I enter time in months or days?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Pick the unit next to the time field. Months are converted as ÷ 12 and days as ÷ 365, so 18 months counts as 1.5 years and 90 days as about 0.2466 years." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between simple and compound interest?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Simple interest is always calculated on the original principal only. Compound interest is calculated on the principal plus previously earned interest, so it grows faster over the same period." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is simple interest typically used?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Short-term personal loans, some car loans, credit-card style billing before compounding kicks in, and certain savings or bond payouts. Always check the actual terms — the method varies by product." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my numbers stored?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The calculation runs entirely in your browser — your amounts are never sent to a server or saved by Jivora." }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://jivora.example/" },
+      { "@type": "ListItem", "position": 2, "name": "Finance Tools", "item": "https://jivora.example/index.html#cat-finance" },
+      { "@type": "ListItem", "position": 3, "name": "Simple Interest Calculator", "item": "https://jivora.example/tools/simple-interest-calculator.html" }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-tool" data-page="tool" data-tool="simple-interest-calculator" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="../index.html">Home</a>
+        <a class="nav-link is-active" href="index.html" aria-current="page">Tools</a>
+        <a class="nav-link" href="../index.html#categories">Categories</a>
+        <a class="nav-link" href="../about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a href="../index.html">Home</a>
+        <a class="is-active" href="index.html" aria-current="page">Tools</a>
+        <a href="../index.html#categories">Categories</a>
+        <a href="../about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          <li><span aria-current="page">Simple Interest Calculator</span></li>
+        </ol>
+      </nav>
+
+      <section class="tool-hero">
+        <div class="tool-hero__inner">
+          <span class="tool-hero__icon" data-cat="finance" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 10 12 4l9 6"/><path d="M5.5 10.5V18M9.8 10.5V18M14.2 10.5V18M18.5 10.5V18"/><path d="M3 21h18"/>
+            </svg>
+          </span>
+          <div>
+            <h1 class="tool-hero__title">Simple Interest Calculator</h1>
+            <p class="tool-hero__lead">Interest on the principal only, nothing compounding: enter the amount, annual rate and time — in years, months or days — and get the interest and total instantly.</p>
+            <div class="tool-hero__meta">
+              <span class="pill">100% Free</span>
+              <span class="pill">No signup</span>
+              <span class="pill">Runs in your browser</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-panel" aria-label="Simple interest calculator">
+        <div class="tool-panel__head">
+          <h2 class="tool-panel__title">Try it</h2>
+          <span class="tool-panel__badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+            Nothing leaves your device
+          </span>
+        </div>
+
+        <div class="tool-panel__body">
+          <form id="si-form" novalidate>
+            <div class="field-grid">
+              <div class="field">
+                <label class="field-label" for="si-principal">Principal amount <span class="field-unit">₹</span></label>
+                <input type="number" id="si-principal" min="0" step="any" placeholder="e.g. 50000" inputmode="decimal">
+              </div>
+              <div class="field">
+                <label class="field-label" for="si-rate">Interest rate <span class="field-unit">% per year</span></label>
+                <input type="number" id="si-rate" min="0" step="any" placeholder="e.g. 8" inputmode="decimal">
+              </div>
+            </div>
+
+            <div class="field-grid" style="margin-top: 18px;">
+              <div class="field">
+                <label class="field-label" for="si-time">Time period</label>
+                <input type="number" id="si-time" min="0" step="any" placeholder="e.g. 2.5" inputmode="decimal">
+              </div>
+              <div class="field">
+                <label class="field-label" for="si-unit">Time unit</label>
+                <select id="si-unit">
+                  <option value="years" selected>Years</option>
+                  <option value="months">Months</option>
+                  <option value="days">Days</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="error-box" id="si-error" role="alert">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 8v4.5M12 16h.01"/>
+              </svg>
+              <span></span>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn--primary" type="submit">Calculate</button>
+              <button class="btn btn--ghost" type="reset">Reset</button>
+              <button class="btn btn--soft" type="button" id="si-copy">Copy Result</button>
+            </div>
+          </form>
+
+          <div class="result" id="si-result" role="status" aria-live="polite">
+            <p class="result__empty">Enter the principal, rate and time, then press Calculate — the interest appears here.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">How to use this calculator</h2>
+        <ol class="steps">
+          <li><strong>Enter the principal</strong> — the original amount being lent, borrowed or deposited.</li>
+          <li><strong>Set the annual rate</strong> as a percentage, then enter the time and choose its unit (years, months or days).</li>
+          <li><strong>Press Calculate</strong> to see the simple interest, the total amount and the exact formula used.</li>
+          <li><strong>Copy or reset.</strong> Grab the full result with <strong>Copy Result</strong>, or <strong>Reset</strong> to start a new scenario.</li>
+        </ol>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Useful information</h2>
+        <div class="prose">
+          <p>Simple interest is the straightforward version: the same percentage of the original principal is charged or earned every period. No interest is ever added to the base, so the growth is a straight line instead of a curve.</p>
+
+          <h3>The formula</h3>
+          <p><strong>I = (P × R × T) ÷ 100</strong>, where P is the principal, R the annual rate and T the time in years. For ₹50,000 at 8% for 2 years: (50,000 × 8 × 2) ÷ 100 = <strong>₹8,000</strong>, making the total ₹58,000.</p>
+
+          <h3>Converting time</h3>
+          <p>The rate is annual, so time must end up in years: months ÷ 12, days ÷ 365. The unit selector handles that for you — 18 months becomes 1.5 years automatically.</p>
+
+          <h3>Simple vs compound</h3>
+          <p>Compound interest pays “interest on interest”, so over long periods it pulls ahead quickly. If your product compounds (most savings accounts, FDs and mutual funds do), use the <a href="compound-interest-calculator.html">Compound Interest Calculator</a> instead — this tool intentionally keeps things linear.</p>
+
+          <p><strong>Reminder:</strong> this is an estimate for planning. Actual products may compound, add fees or count days differently (e.g. 360-day years) — check the fine print for anything formal.</p>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Frequently asked questions</h2>
+        <div class="faq">
+          <details>
+            <summary>What is the simple interest formula?</summary>
+            <p class="faq__answer">Interest = (Principal × Rate × Time) ÷ 100. The total amount to repay is Principal + Interest. Rate is annual and time must be in years.</p>
+          </details>
+          <details>
+            <summary>How do I enter time in months or days?</summary>
+            <p class="faq__answer">Pick the unit next to the time field. Months are converted as ÷ 12 and days as ÷ 365, so 18 months counts as 1.5 years and 90 days as about 0.2466 years.</p>
+          </details>
+          <details>
+            <summary>What is the difference between simple and compound interest?</summary>
+            <p class="faq__answer">Simple interest is always calculated on the original principal only. Compound interest is calculated on the principal plus previously earned interest, so it grows faster over the same period.</p>
+          </details>
+          <details>
+            <summary>Where is simple interest typically used?</summary>
+            <p class="faq__answer">Short-term personal loans, some car loans, credit-card style billing before compounding kicks in, and certain savings or bond payouts. Always check the actual terms — the method varies by product.</p>
+          </details>
+          <details>
+            <summary>Are my numbers stored?</summary>
+            <p class="faq__answer">No. The calculation runs entirely in your browser — your amounts are never sent to a server or saved by Jivora.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="tool-section">
+        <h2 class="tool-section__title">Related tools</h2>
+        <div class="related-grid">
+          <a class="rel-card" href="compound-interest-calculator.html" data-cat="finance">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="6.3" rx="7" ry="2.8"/>
+                <path d="M5 6.3v5.2c0 1.6 3.1 2.9 7 2.9s7-1.3 7-2.9V6.3"/>
+                <path d="M5 11.5v5.2c0 1.6 3.1 2.9 7 2.9s7-1.3 7-2.9v-5.2"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Compound Interest Calculator</span>
+              <span class="rel-card__cat">Finance Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="emi-calculator.html" data-cat="finance">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10 12 4l9 6"/><path d="M5.5 10.5V18M9.8 10.5V18M14.2 10.5V18M18.5 10.5V18"/><path d="M3 21h18"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">EMI Calculator</span>
+              <span class="rel-card__cat">Finance Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a class="rel-card" href="percentage-calculator.html" data-cat="student">
+            <span class="rel-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/><path d="M19 5 5 19"/>
+              </svg>
+            </span>
+            <span>
+              <span class="rel-card__name">Percentage Calculator</span>
+              <span class="rel-card__cat">Student Tools</span>
+            </span>
+            <svg class="rel-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="../index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="../index.html#popular">Popular Tools</a></li>
+            <li><a href="../index.html#cat-student">Student Tools</a></li>
+            <li><a href="../index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="../index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/tools/simple-interest-calculator.js"></script>
+</body>
+</html>

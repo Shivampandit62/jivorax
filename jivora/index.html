@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jivora — Useful tools. Made simple.</title>
+  <meta name="description" content="Free, fast and privacy-friendly online tools: percentage calculator, QR code generator, EMI calculator, word counter, JSON formatter and more. No signup required — everything runs in your browser.">
+  <link rel="canonical" href="https://jivora.example/">
+  <meta name="theme-color" content="#070a14">
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jivora">
+  <meta property="og:title" content="Jivora — Useful tools. Made simple.">
+  <meta property="og:description" content="Free, fast and privacy-friendly online tools for students, developers, creators and everyday tasks. No signup required.">
+  <meta property="og:url" content="https://jivora.example/">
+  <meta property="og:image" content="https://jivora.example/assets/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jivora — Useful tools. Made simple.">
+  <meta name="twitter:description" content="Free, fast and privacy-friendly online tools. No signup required.">
+  <meta name="twitter:image" content="https://jivora.example/assets/og-image.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!--
+    Google Search Console verification (HTML tag method):
+    paste the content value into js/config.js -> searchConsoleVerification,
+    or replace the line below with your real <meta> tag. Do not use a fake code.
+  -->
+
+  <script>
+    try {
+      if (localStorage.getItem("jivora-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script defer src="js/config.js"></script>
+  <script defer src="js/analytics.js"></script>
+  <script defer src="js/tools-data.js"></script>
+  <script defer src="js/search.js"></script>
+  <script defer src="js/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Jivora",
+    "url": "https://jivora.example/",
+    "description": "Useful tools. Made simple. Free, fast and privacy-friendly online tools for students, developers, creators and everyday tasks.",
+    "inLanguage": "en"
+  }
+  </script>
+</head>
+
+<body class="page-home" data-root="">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ================= Header ================= -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Jivora — home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+            <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+          </svg>
+        </span>
+        <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link is-active" href="index.html" aria-current="page">Home</a>
+        <a class="nav-link" href="tools/index.html">Tools</a>
+        <a class="nav-link" href="#categories">Categories</a>
+        <a class="nav-link" href="about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" data-search-open aria-label="Search tools">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+          </svg>
+        </button>
+        <button class="icon-btn" type="button" id="theme-toggle" aria-label="Switch to light theme">
+          <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>
+          </svg>
+          <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>
+          </svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <a class="is-active" href="index.html" aria-current="page">Home</a>
+        <a href="tools/index.html">Tools</a>
+        <a href="#categories">Categories</a>
+        <a href="about.html">About</a>
+        <button type="button" class="mobile-search-btn" data-search-open>
+          Search tools <kbd>Ctrl&nbsp;K</kbd>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ================= Hero ================= -->
+    <section class="hero">
+      <span class="hero-blob hero-blob--1" aria-hidden="true"></span>
+      <span class="hero-blob hero-blob--2" aria-hidden="true"></span>
+      <span class="hero-blob hero-blob--3" aria-hidden="true"></span>
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-inner">
+          <p class="hero-badge">✨ Free tools for everyday life</p>
+
+          <h1 class="hero-title">Useful tools. <span class="grad-text">Made simple.</span></h1>
+
+          <p class="hero-sub">Fast, free and beautifully simple tools for students, developers, creators and everyday tasks.</p>
+
+          <div class="hero-search">
+            <span class="hero-search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/>
+              </svg>
+            </span>
+            <input id="hero-search" class="hero-input" type="search" placeholder='What do you need today?'
+                   autocomplete="off" spellcheck="false" role="combobox" aria-expanded="false"
+                   aria-controls="hero-results" aria-autocomplete="list" aria-label="Search Jivora tools">
+            <div class="hero-results" id="hero-results" role="listbox" aria-label="Search results" hidden></div>
+          </div>
+
+          <p class="hero-tip">Results appear as you type &middot; or press <kbd>Ctrl</kbd><kbd>K</kbd> anywhere</p>
+
+          <div class="hero-actions">
+            <a class="btn btn--primary btn--lg" href="tools/index.html">
+              Explore Tools
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#popular">Popular Tools</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Trust strip ================= -->
+    <section class="trust" aria-label="Why people use Jivora">
+      <div class="container">
+        <ul class="trust-list">
+          <li class="trust-item">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 11V4a1 1 0 0 1 1-1h7l9.5 9.5a2 2 0 0 1 0 2.8l-6.2 6.2a2 2 0 0 1-2.8 0L3 11Z"/>
+                <circle cx="7.6" cy="7.6" r="1.3"/>
+              </svg>
+            </span>
+            <span class="trust-text">
+              <span class="trust-label">100% Free</span>
+              <span class="trust-sub">Every tool, forever</span>
+            </span>
+          </li>
+          <li class="trust-item">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="10" cy="8" r="4"/>
+                <path d="M3 21c0-3.9 3.1-6.4 7-6.4 1.1 0 2.2.2 3.1.6"/>
+                <path d="m16.6 17.4 4.4 4.4M21 17.4l-4.4 4.4"/>
+              </svg>
+            </span>
+            <span class="trust-text">
+              <span class="trust-label">No Signup Required</span>
+              <span class="trust-sub">Open and start using</span>
+            </span>
+          </li>
+          <li class="trust-item">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2.5 4.8 13.4h6.1L10.4 21.5l8.3-11.2h-6.1L13 2.5Z"/>
+              </svg>
+            </span>
+            <span class="trust-text">
+              <span class="trust-label">Fast &amp; Simple</span>
+              <span class="trust-sub">No waiting, no clutter</span>
+            </span>
+          </li>
+          <li class="trust-item">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </span>
+            <span class="trust-text">
+              <span class="trust-label">Privacy Friendly</span>
+              <span class="trust-sub">Local browser processing</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= Popular tools ================= -->
+    <section class="section" id="popular">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="section-title">🔥 Popular Tools</h2>
+          <p class="section-sub">The tools you need, without the unnecessary stuff.</p>
+        </div>
+
+        <div class="tools-grid">
+          <a class="tool-card" href="tools/percentage-calculator.html" data-cat="student" data-reveal style="--d:.02s">
+            <span class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7" cy="7" r="2.6"/><circle cx="17" cy="17" r="2.6"/><path d="M19 5 5 19"/>
+              </svg>
+            </span>
+            <span class="tool-card__cat">Student Tools</span>
+            <h3 class="tool-card__name">Percentage Calculator</h3>
+            <p class="tool-card__desc">Percentage of a number, what percent X is of Y, and percentage increase or decrease — all in one place.</p>
+            <span class="tool-card__foot">
+              Open Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </a>
+
+          <a class="tool-card" href="tools/qr-code-generator.html" data-cat="everyday" data-reveal style="--d:.08s">
+            <span class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M4 14h6v6H4z"/>
+                <path d="M14 14h2.6v2.6H14z"/><path d="M18.4 18.4h2.6v2.6h-2.6z"/><path d="M20 14h1M14 20h1"/>
+              </svg>
+            </span>
+            <span class="tool-card__cat">Everyday Tools</span>
+            <h3 class="tool-card__name">QR Code Generator</h3>
+            <p class="tool-card__desc">Turn text, links, phone numbers and emails into a crisp, scannable QR code — with one-click download.</p>
+            <span class="tool-card__foot">
+              Open Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </a>
+
+          <a class="tool-card" href="tools/age-calculator.html" data-cat="student" data-reveal style="--d:.14s">
+            <span class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/>
+              </svg>
+            </span>
+            <span class="tool-card__cat">Student Tools</span>
+            <h3 class="tool-card__name">Age Calculator</h3>
+            <p class="tool-card__desc">Exact age in years, months and days from any date of birth, calculated against today's date automatically.</p>
+            <span class="tool-card__foot">
+              Open Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </a>
+
+          <a class="tool-card" href="tools/emi-calculator.html" data-cat="finance" data-reveal style="--d:.02s">
+            <span class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10 12 4l9 6"/><path d="M5.5 10.5V18M9.8 10.5V18M14.2 10.5V18M18.5 10.5V18"/><path d="M3 21h18"/>
+              </svg>
+            </span>
+            <span class="tool-card__cat">Finance Tools</span>
+            <h3 class="tool-card__name">EMI Calculator</h3>
+            <p class="tool-card__desc">Estimate monthly EMI, total interest and total payment for any loan — with a clear principal vs interest breakdown.</p>
+            <span class="tool-card__foot">
+              Open Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </a>
+
+          <a class="tool-card" href="tools/word-counter.html" data-cat="text" data-reveal style="--d:.08s">
+            <span class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+              </svg>
+            </span>
+            <span class="tool-card__cat">Text Tools</span>
+            <h3 class="tool-card__name">Word Counter</h3>
+            <p class="tool-card__desc">Live word, character, sentence and paragraph counts as you type, plus a quick reading-time estimate.</p>
+            <span class="tool-card__foot">
+              Open Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </a>
+
+          <a class="tool-card" href="tools/password-generator.html" data-cat="everyday" data-reveal style="--d:.14s">
+            <span class="tool-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4.5" y="10" width="15" height="10.5" rx="3"/>
+                <path d="M8 10V7.2a4 4 0 0 1 8 0V10"/><circle cx="12" cy="15.2" r="1.4"/>
+              </svg>
+            </span>
+            <span class="tool-card__cat">Everyday Tools</span>
+            <h3 class="tool-card__name">Password Generator</h3>
+            <p class="tool-card__desc">Create strong random passwords with length controls, character options and instant strength scoring.</p>
+            <span class="tool-card__foot">
+              Open Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Categories ================= -->
+    <section class="section" id="categories">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="section-title">🧰 Tool Categories</h2>
+          <p class="section-sub">Six tidy categories. Every tool is free, instant and account-free.</p>
+        </div>
+
+        <div class="cat-grid">
+          <!-- Student -->
+          <article class="cat-card" id="cat-student" data-cat="student" data-reveal style="--d:.02s">
+            <header class="cat-card__head">
+              <span class="cat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 8.5 12 4l10 4.5-10 4.5L2 8.5Z"/><path d="M6 10.8V16c0 1.6 2.7 3 6 3s6-1.4 6-3v-5.2"/><path d="M21.5 9v5"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="cat-card__title">📚 Student Tools</h3>
+                <p class="cat-card__count">6 tools · all available</p>
+              </div>
+            </header>
+            <p class="cat-card__blurb">Calculators and timers that make study life easier.</p>
+            <ul class="chip-list">
+              <li><a class="tool-chip" href="tools/percentage-calculator.html">Percentage Calculator</a></li>
+              <li><a class="tool-chip" href="tools/cgpa-calculator.html">CGPA Calculator</a></li>
+              <li><a class="tool-chip" href="tools/gpa-calculator.html">GPA Calculator</a></li>
+              <li><a class="tool-chip" href="tools/age-calculator.html">Age Calculator</a></li>
+              <li><a class="tool-chip" href="tools/study-timer.html">Study Timer</a></li>
+              <li><a class="tool-chip" href="tools/pomodoro-timer.html">Pomodoro Timer</a></li>
+            </ul>
+          </article>
+
+          <!-- Finance -->
+          <article class="cat-card" id="cat-finance" data-cat="finance" data-reveal style="--d:.08s">
+            <header class="cat-card__head">
+              <span class="cat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="6.3" rx="7" ry="2.8"/>
+                  <path d="M5 6.3v5.2c0 1.6 3.1 2.9 7 2.9s7-1.3 7-2.9V6.3"/>
+                  <path d="M5 11.5v5.2c0 1.6 3.1 2.9 7 2.9s7-1.3 7-2.9v-5.2"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="cat-card__title">💰 Finance Tools</h3>
+                <p class="cat-card__count">6 tools · 2 available now</p>
+              </div>
+            </header>
+            <p class="cat-card__blurb">Plan loans, taxes and investments in seconds.</p>
+            <ul class="chip-list">
+              <li><a class="tool-chip" href="tools/emi-calculator.html">EMI Calculator</a></li>
+              <li><a class="tool-chip" href="tools/sip-calculator.html">SIP Calculator</a></li>
+              <li><a class="tool-chip" href="tools/gst-calculator.html">GST Calculator</a></li>
+              <li><a class="tool-chip" href="tools/simple-interest-calculator.html">Simple Interest</a></li>
+              <li><a class="tool-chip" href="tools/compound-interest-calculator.html">Compound Interest</a></li>
+              <li><a class="tool-chip" href="tools/discount-calculator.html">Discount Calculator</a></li>
+            </ul>
+          </article>
+
+          <!-- Developer -->
+          <article class="cat-card" id="cat-developer" data-cat="developer" data-reveal style="--d:.14s">
+            <header class="cat-card__head">
+              <span class="cat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.6 5l-3.2 14"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="cat-card__title">💻 Developer Tools</h3>
+                <p class="cat-card__count">7 tools · all available</p>
+              </div>
+            </header>
+            <p class="cat-card__blurb">Format, encode and generate — right inside your browser.</p>
+            <ul class="chip-list">
+              <li><a class="tool-chip" href="tools/json-formatter.html">JSON Formatter</a></li>
+              <li><a class="tool-chip" href="tools/json-validator.html">JSON Validator</a></li>
+              <li><a class="tool-chip" href="tools/base64-encoder.html">Base64 Encoder</a></li>
+              <li><a class="tool-chip" href="tools/base64-decoder.html">Base64 Decoder</a></li>
+              <li><a class="tool-chip" href="tools/uuid-generator.html">UUID Generator</a></li>
+              <li><a class="tool-chip" href="tools/regex-tester.html">Regex Tester</a></li>
+              <li><a class="tool-chip" href="tools/html-formatter.html">HTML Formatter</a></li>
+            </ul>
+          </article>
+
+          <!-- Text -->
+          <article class="cat-card" id="cat-text" data-cat="text" data-reveal style="--d:.02s">
+            <header class="cat-card__head">
+              <span class="cat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 5h16M4 10h16M4 15h10M4 20h7"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="cat-card__title">📝 Text Tools</h3>
+                <p class="cat-card__count">6 tools · all available</p>
+              </div>
+            </header>
+            <p class="cat-card__blurb">Count, clean and transform any text instantly.</p>
+            <ul class="chip-list">
+              <li><a class="tool-chip" href="tools/word-counter.html">Word Counter</a></li>
+              <li><a class="tool-chip" href="tools/character-counter.html">Character Counter</a></li>
+              <li><a class="tool-chip" href="tools/case-converter.html">Case Converter</a></li>
+              <li><a class="tool-chip" href="tools/text-cleaner.html">Text Cleaner</a></li>
+              <li><a class="tool-chip" href="tools/duplicate-line-remover.html">Duplicate Line Remover</a></li>
+              <li><a class="tool-chip" href="tools/text-reverser.html">Text Reverser</a></li>
+            </ul>
+          </article>
+
+          <!-- Image -->
+          <article class="cat-card" id="cat-image" data-cat="image" data-reveal style="--d:.08s">
+            <header class="cat-card__head">
+              <span class="cat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="8.5" cy="9.3" r="1.7"/>
+                  <path d="m4 18.5 5-5 4 4 3-3 4 4"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="cat-card__title">🖼️ Image Tools</h3>
+                <p class="cat-card__count">6 tools · all available</p>
+              </div>
+            </header>
+            <p class="cat-card__blurb">Compress and convert images without uploading them.</p>
+            <ul class="chip-list">
+              <li><a class="tool-chip" href="tools/image-compressor.html">Image Compressor</a></li>
+              <li><a class="tool-chip" href="tools/image-resizer.html">Image Resizer</a></li>
+              <li><a class="tool-chip" href="tools/jpg-to-png.html">JPG → PNG</a></li>
+              <li><a class="tool-chip" href="tools/png-to-jpg.html">PNG → JPG</a></li>
+              <li><a class="tool-chip" href="tools/image-cropper.html">Image Cropper</a></li>
+              <li><a class="tool-chip" href="tools/image-to-pdf.html">Image → PDF</a></li>
+            </ul>
+          </article>
+
+          <!-- Everyday -->
+          <article class="cat-card" id="cat-everyday" data-cat="everyday" data-reveal style="--d:.14s">
+            <header class="cat-card__head">
+              <span class="cat-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2.5 4.8 13.4h6.1L10.4 21.5l8.3-11.2h-6.1L13 2.5Z"/>
+                </svg>
+              </span>
+              <div>
+                <h3 class="cat-card__title">⚡ Everyday Tools</h3>
+                <p class="cat-card__count">6 tools · 2 available now</p>
+              </div>
+            </header>
+            <p class="cat-card__blurb">Small handy tools you will reach for every day.</p>
+            <ul class="chip-list">
+              <li><a class="tool-chip" href="tools/qr-code-generator.html">QR Code Generator</a></li>
+              <li><a class="tool-chip" href="tools/password-generator.html">Password Generator</a></li>
+              <li><a class="tool-chip" href="tools/random-number-generator.html">Random Number Generator</a></li>
+              <li><a class="tool-chip" href="tools/random-name-picker.html">Random Name Picker</a></li>
+              <li><a class="tool-chip" href="tools/stopwatch.html">Stopwatch</a></li>
+              <li><a class="tool-chip" href="tools/countdown-timer.html">Countdown Timer</a></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Privacy band ================= -->
+    <section class="privacy-band" aria-label="Privacy promise">
+      <div class="container">
+        <div class="privacy-card" data-reveal>
+          <span class="privacy-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </span>
+          <div class="privacy-card__text">
+            <p class="privacy-card__title">Your data stays in your browser whenever possible.</p>
+            <p class="privacy-card__sub">Calculators, text tools, QR codes and image compression all run locally on your device — nothing is uploaded, and there is no account to create.</p>
+          </div>
+          <a class="btn btn--ghost" href="privacy.html">How we handle data</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Jivora — home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M36 12v27a13 13 0 0 1-13 13h-5a9 9 0 0 1-9-9" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+                <circle cx="45" cy="17" r="5" fill="#34d8f0"/>
+              </svg>
+            </span>
+            <span class="brand-name"><span class="brand-j">J</span>ivora</span>
+          </a>
+          <p class="footer-tagline">Useful tools. Made simple.</p>
+          <p class="footer-privacy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Your data stays in your browser whenever possible.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Tools</h2>
+          <ul class="footer-links">
+            <li><a href="index.html#popular">Popular Tools</a></li>
+            <li><a href="index.html#cat-student">Student Tools</a></li>
+            <li><a href="index.html#cat-developer">Developer Tools</a></li>
+            <li><a href="index.html#cat-finance">Finance Tools</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Company</h2>
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Jivora. All rights reserved.</span>
+        <span class="footer-credit">Created by <a href="https://github.com/Shivampandit62" target="_blank" rel="noopener noreferrer">Shivam Pandey</a></span>
+        <span class="footer-bottom-note">Useful tools. Made simple.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
